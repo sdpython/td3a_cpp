@@ -30,12 +30,12 @@ def get_defined_args():
         # mac osx
         define_macros = [('USE_OPENMP', None)]
         libraries = None
-        extra_compile_args = None
+        extra_compile_args = ['-malign-double']
     else:
         # linux
         define_macros = [('USE_OPENMP', None)]
         libraries = None
-        extra_compile_args = None
+        extra_compile_args = ['-malign-double']
 
     return {
         'define_macros': define_macros,
