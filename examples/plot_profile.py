@@ -79,7 +79,7 @@ if profiler is not None:
     with open("dot_pyinstrument.html", "w", encoding="utf-8") as f:
         f.write(profiler.output_html())
 
-########################
+#######################################
 # It looks like this:
 #
 # .. raw:: html
@@ -99,10 +99,11 @@ if profiler is not None:
            "-o dotpyspy.svg -- {0} plot_profile.py --pyspy").format(executable)
     run_cmd(cmd, wait=True, fLOG=print)
 
+#######################################
 # It looks like this:
 #
 # .. raw:: html
-#       :file: _dotpyspy.html
+#       :file: _dotpyspy.svg
 #
 # We see that :func:`cblas_ddot` and `numpy.dot` uses
 # the same C function but the wrapping is not the same
