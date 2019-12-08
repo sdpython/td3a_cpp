@@ -6,6 +6,7 @@ py-spy
 pandas
 pyinstrument
 pyquickhelper>=1.9.3248
+pytest
 sphinx
 sphinx-gallery
 tqdm
