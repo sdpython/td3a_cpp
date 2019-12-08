@@ -55,6 +55,12 @@ jobs:
             cp dist/*.whl test-reports
 
       - run:
+          name: check speed
+          command: |
+            . venv/bin/activate
+            python -m td3a_cpp check
+
+      - run:
           name: documentation
           command: |
             . venv/bin/activate

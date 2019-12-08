@@ -102,5 +102,8 @@ epkg_dictionary = {
     'cython': 'https://cython.org/',
     'numpy': 'https://numpy.org/',
     'openmp': 'https://www.openmp.org/',
+    'pyinstrument': 'https://github.com/joerick/pyinstrument',
+    'py-spy': 'https://github.com/benfred/py-spy',
+    'RUST': 'https://www.rust-lang.org/',
     'tqdm': 'https://github.com/tqdm/tqdm',
 }

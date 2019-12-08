@@ -32,6 +32,7 @@ test_script:
 
 after_test:
   - python setup.py bdist_wheel
+  - python -m td3a_cpp check
 
 artifacts:
   - path: dist

@@ -2,6 +2,8 @@ coverage
 flake8
 matplotlib
 pillow
+py-spy
+pyinstrument
 pyquickhelper
 sphinx
 sphinx-gallery

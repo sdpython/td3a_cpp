@@ -23,5 +23,6 @@ script:
   - python -m flake8 td3a_cpp
   - python -m flake8 examples
   - python setup.py bdist_wheel
+  - python -m td3a_cpp check
   
 

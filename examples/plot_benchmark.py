@@ -2,8 +2,8 @@
 
 .. _l-example-dot:
 
-Compares dot implementation
-===========================
+Compares dot implementations
+============================
 
 :epkg:`numpy` has a very fast implementation of
 the dot product. It is difficult to be better and very easy

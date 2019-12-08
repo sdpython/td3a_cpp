@@ -40,6 +40,9 @@ jobs:
   - script: |
       python -u setup.py bdist_wheel
     displayName: 'Build Package'
+  - script: |
+      python -m td3a_cpp check
+    displayName: 'Check speed'
 #  - script: |
 #      python -u setup.py build_sphinx
 #    displayName: 'Builds Documentation'
@@ -101,6 +104,9 @@ jobs:
   - script: |
       python -u setup.py bdist_wheel
     displayName: 'Build Package'
+  - script: |
+      python -m td3a_cpp check
+    displayName: 'Check speed'
   - task: PublishPipelineArtifact@0
     inputs:
       artifactName: 'wheel-mac-$(python.version)'
