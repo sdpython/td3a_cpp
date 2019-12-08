@@ -8,7 +8,7 @@ from td3a_cpp import check
 class TestCheck(unittest.TestCase):
 
     def test_check(self):
-        res = check(verbose=0)
+        res = check(verbose=1 if __name__ == '__main__' else 0)
         self.assertIsInstance(res, list)
 
 

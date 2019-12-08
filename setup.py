@@ -20,28 +20,41 @@ def get_cmd_classes():
     return {'build_ext': build_ext_subclass}
 
 
-def get_defined_macros():
+def get_defined_args():
     if sys.platform.startswith("win"):
         # windows
         define_macros = [('USE_OPENMP', None)]
+        libraries = None
+        extra_compile_args = ['/EHsc', '/O2', '/Gy']
     elif sys.platform.startswith("darwin"):
         # mac osx
         define_macros = [('USE_OPENMP', None)]
+        libraries = None
+        extra_compile_args = None
     else:
         # linux
         define_macros = [('USE_OPENMP', None)]
-    return define_macros
+        libraries = None
+        extra_compile_args = None
+
+    return {
+        'define_macros': define_macros,
+        'libraries': libraries,
+        'extra_compile_args': extra_compile_args,
+    }
 
 
-def get_extensions_dot_blas_lapack():
-    define_macros = get_defined_macros()
+def get_extension_tutorial(name):
     pattern1 = "td3a_cpp.tutorial.%s"
-    name = 'dot_blas_lapack'
-    ext_dot_blas = Extension(pattern1 % name,
-                             ['td3a_cpp/tutorial/%s.pyx' % name],
-                             include_dirs=[numpy.get_include()],
-                             extra_compile_args=["-O3"],
-                             define_macros=define_macros)
+    srcs = ['td3a_cpp/tutorial/%s.pyx' % name]
+    args = get_defined_args()
+    if name == 'dot_cython':
+        srcs.extend(['td3a_cpp/tutorial/%s_.cpp' % name])
+        args['language'] = "c++"
+    ext = Extension(pattern1 % name,
+                    srcs,
+                    include_dirs=[numpy.get_include()],
+                    **args)
 
     opts = dict(boundscheck=False, cdivision=True,
                 wraparound=False, language_level=3,
@@ -50,8 +63,9 @@ def get_extensions_dot_blas_lapack():
     ext_modules = []
 
     from Cython.Build import cythonize
-    ext_modules.extend(cythonize([ext_dot_blas], compiler_directives=opts))
+    ext_modules.extend(cythonize([ext], compiler_directives=opts))
     return ext_modules
+
 
 ######################
 # beginning of setup
@@ -62,7 +76,7 @@ here = os.path.dirname(__file__)
 packages = find_packages(where=here)
 package_dir = {k: os.path.join(here, k.replace(".", "/")) for k in packages}
 package_data = {
-    "td3a_cpp.tutorial": ["*.pyx"],
+    "td3a_cpp.tutorial": ["*.pyx", '*.cpp', '*.h'],
 }
 
 with open(os.path.join(here, "requirements.txt"), "r") as f:
@@ -71,7 +85,8 @@ if len(requirements) == 0 or requirements == ['']:
     requirements = []
 
 ext_modules = []
-ext_modules.extend(get_extensions_dot_blas_lapack())
+for ext in ['dot_blas_lapack', 'dot_cython']:
+    ext_modules.extend(get_extension_tutorial(ext))
 
 
 setup(name='td3a_cpp',

@@ -1,6 +1,11 @@
-Galleries d'exemples
-====================
+Example gallery
+===============
 
-Avec `sphinx-gallery <https://github.com/sphinx-gallery/sphinx-gallery>`_.
+A couple of examples to illustrate different implementation
+of dot product (see also :epkg:`sphinx-gallery`).
+
+
+
+
 
 

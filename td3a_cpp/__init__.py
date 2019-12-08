@@ -18,20 +18,35 @@ def check(verbose=1):
     import pprint
     import numpy
     from .tutorial import pydot, cblas_ddot
+    from .tutorial.dot_cython import (
+        dot_product, dot_cython_array,
+        dot_cython_array_optim, dot_array,
+        dot_array_16, dot_array_16_sse
+    )
     from .tools import measure_time
 
-    va = numpy.arange(0, 1000).astype(numpy.float64)
-    vb = numpy.arange(0, 1000).astype(numpy.float64) - 5
+    va = numpy.arange(0, 10000).astype(numpy.float64)
+    vb = numpy.arange(0, 10000).astype(numpy.float64) - 5
     fcts = [
-        ('pydot', pydot),
+        ('pydot', pydot, 1),
         ('numpy.dot', numpy.dot),
         ('ddot', cblas_ddot),
+        ('dot_product', dot_product),
+        ('dot_cython_array', dot_cython_array),
+        ('dot_cython_array_optim', dot_cython_array_optim),
+        ('dot_array', dot_array),
+        ('dot_array_16', dot_array_16),
+        ('dot_array_16_sse', dot_array_16_sse),
     ]
 
     rows = []
-    for name, fct in fcts:
+    for tu in fcts:
+        name, fct = tu[:2]
         ctx = {'va': va, 'vb': vb, 'fdot': fct}
-        res = measure_time('fdot(va, vb)', ctx)
+        if len(tu) == 3:
+            res = measure_time('fdot(va, vb)', ctx, repeat=tu[2])
+        else:
+            res = measure_time('fdot(va, vb)', ctx)
         res['name'] = name
         if verbose > 0:
             pprint.pprint(res)

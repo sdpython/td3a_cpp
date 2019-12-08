@@ -58,7 +58,7 @@ pprint.pprint(res_dot[:2])
 # blas dot
 # ++++++++
 #
-# :epkg:`numpy` implementation uses :epkg:`blas`.
+# :epkg:`numpy` implementation uses :epkg:`BLAS`.
 # Let's make a direct call to it.
 
 for ctx in ctxs:

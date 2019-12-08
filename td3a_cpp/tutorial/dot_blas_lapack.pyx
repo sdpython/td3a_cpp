@@ -36,7 +36,7 @@ cdef float _cblas_sdot(int n, const float* x, int sx,
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def cblas_ddot(const double[:] x, const double[:] y):
+def cblas_ddot(const double[::1] x, const double[::1] y):
     """
     Computes a dot product with
     `cblas_ddot <https://software.intel.com/en-us/
@@ -54,7 +54,7 @@ def cblas_ddot(const double[:] x, const double[:] y):
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def cblas_sdot(const float[:] x, const float[:] y):
+def cblas_sdot(const float[::1] x, const float[::1] y):
     """
     Computes a dot product with
     `cblas_sdot <https://software.intel.com/en-us/
