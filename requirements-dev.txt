@@ -1,0 +1,8 @@
+coverage
+flake8
+matplotlib
+pillow
+pyquickhelper
+sphinx
+sphinx-gallery
+wheel
