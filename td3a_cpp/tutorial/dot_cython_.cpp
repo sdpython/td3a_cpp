@@ -28,13 +28,12 @@ double vector_dot_product_pointer16(const double *p1, const double *p2)
     return sum;
 }
 
-double vector_dot_product_pointer16(const double *p1, const double *p2, int sizei)
+double vector_dot_product_pointer16(const double *p1, const double *p2, int size)
 {
-    size_t size = (size_t)sizei;
     double sum = 0;
-    size_t i = 0;
+    int i = 0;
     if (size >= BYN) {
-        size_t size_ = size - BYN;
+        int size_ = size - BYN;
         for(; i < size_; i += BYN, p1 += BYN, p2 += BYN)
             sum += vector_dot_product_pointer16(p1, p2);
     }
