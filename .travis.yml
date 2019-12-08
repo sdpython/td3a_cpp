@@ -18,7 +18,7 @@ before_script:
   - gcc --version
   - python setup.py build_ext --inplace
 script:
-  - python -m unittest discover tests
+  - python -m unittest discover tests -v -v
   - python -m flake8 tests
   - python -m flake8 td3a_cpp
   - python -m flake8 examples
