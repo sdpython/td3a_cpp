@@ -13,7 +13,8 @@ the following:
 
 * :func:`dot_product <td3a_cpp.tutorial.dot_cython.dot_product>`
 * :func:`dot_cython_array <td3a_cpp.tutorial.dot_cython.dot_cython_array>`
-* :func:`dot_cython_array_optim <td3a_cpp.tutorial.dot_cython.dot_cython_array_optim>`
+* :func:`dot_cython_array_optim
+  <td3a_cpp.tutorial.dot_cython.dot_cython_array_optim>`
 * :func:`dot_array <td3a_cpp.tutorial.dot_cython.dot_array>`
 * :func:`dot_array_16 <td3a_cpp.tutorial.dot_cython.dot_array_16>`
 * :func:`dot_array_16_sse <td3a_cpp.tutorial.dot_cython.dot_array_16_sse>`
