@@ -1,7 +1,7 @@
 #include "dot_cython_.h"
 #include <emmintrin.h>  // for double m128d
-#include <intrin.h>     // m256d
-#include <xmmintrin.h>  // for doubles m128
+#include <immintrin.h>  // double double m256d
+#include <xmmintrin.h>  // for double m128
 
 #define BYN 16
 
