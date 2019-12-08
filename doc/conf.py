@@ -9,7 +9,7 @@ sys.path.insert(
         os.path.join(
             os.path.dirname(__file__),
             '..')))
-from pystrat2048 import __version__  # noqa
+from td3a_cpp import __version__  # noqa
 
 extensions = [
     'sphinx.ext.autodoc',
@@ -56,7 +56,7 @@ html_sidebars = {
     ]
 }
 
-htmlhelp_basename = 'pystrat2048doc'
+htmlhelp_basename = 'td3a_cppdoc'
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
@@ -85,7 +85,7 @@ latex_documents = [
 
 texinfo_documents = [
     (master_doc, 'td3a_cpp', 'td3a_cpp Documentation',
-     author, 'pystrat2048', 'One line description of project.',
+     author, 'td3a_cpp', 'One line description of project.',
      'Miscellaneous'),
 ]
 

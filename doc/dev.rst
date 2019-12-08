@@ -36,4 +36,4 @@ To check style:
 
 ::
 
-    python -m flake8 pystrat2048 tests examples
+    python -m flake8 td3a_cpp tests examples
