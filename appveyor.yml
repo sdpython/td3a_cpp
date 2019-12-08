@@ -25,10 +25,13 @@ before_test:
   - python -u setup.py build_ext --inplace
 
 test_script:
-  - python -u setup.py unittests
+  - python -m unittest discover tests
+  - python -m flake8 tests
+  - python -m flake8 td3a_cpp
+  - python -m flake8 examples
 
 after_test:
-  - python -u setup.py bdist_wheel
+  - python setup.py bdist_wheel
 
 artifacts:
   - path: dist

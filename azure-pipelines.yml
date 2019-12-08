@@ -35,7 +35,7 @@ jobs:
       python -u setup.py build_ext --inplace
     displayName: 'Runs Unit Tests'
   - script: |
-      python -u setup.py unittests
+      python -m unittest discover tests
     displayName: 'Runs Unit Tests'
   - script: |
       python -u setup.py bdist_wheel
@@ -96,7 +96,7 @@ jobs:
           python setup.py build_ext --inplace
     displayName: 'Build package'
   - script: |
-      python -u setup.py unittests
+      python -m unittest discover tests
     displayName: 'Runs Unit Tests'
   - script: |
       python -u setup.py bdist_wheel
