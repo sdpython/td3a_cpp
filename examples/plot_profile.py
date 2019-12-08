@@ -21,34 +21,42 @@ import sys
 import numpy
 from pyinstrument import Profiler
 from pyquickhelper.loghelper import run_cmd
-from td3a_cpp.tutorial import pydot
+from td3a_cpp.tutorial import pydot, cblas_ddot
 
 
-va = numpy.arange(10000).astype(numpy.float64)
-vb = numpy.arange(10000).astype(numpy.float64) - 5
+va = numpy.arange(100000).astype(numpy.float64)
+vb = numpy.arange(100000).astype(numpy.float64) - 5
 
 
-def f1(va, vb, n=1000):
+def f1_python(va, vb, n=10):
+    # pydot is really too slow, let's run 10 times only
     for i in range(n):
         pydot(va, vb)
 
 
-def f2(va, vb, n=1000):
+def f2_numpy(va, vb, n=100000):
     for i in range(n):
         numpy.dot(va, vb)
 
 
+def f3_blas(va, vb, n=100000):
+    for i in range(n):
+        cblas_ddot(va, vb)
+
+
 if '--pyspy' in sys.argv:
     # When called with option --pyspy
-    f1(va, vb)
-    f2(va, vb)
+    f1_python(va, vb)
+    f2_numpy(va, vb)
+    f3_blas(va, vb)
     profiler = None
 else:
     profiler = Profiler()
     profiler.start()
 
-    f1(va, vb)
-    f2(va, vb)
+    f1_python(va, vb)
+    f2_numpy(va, vb)
+    f3_blas(va, vb)
 
     profiler.stop()
 
@@ -57,7 +65,8 @@ else:
 
 #######################################
 # numpy is much faster and does not always appear
-# as the program is spied on a given number of times
+# if pydot is run the same number of times.
+# The program is spied on a given number of times
 # per seconds, each time the system records
 # which function the program is executing.
 # At the end, the profiler is able to approximatvely tell
@@ -95,4 +104,6 @@ if profiler is not None:
 # .. raw:: html
 #       :file: _dotpyspy.html
 #
-# Again fast functions do not appear on the profiling.
+# We see that :func:`cblas_ddot` and `numpy.dot` uses
+# the same C function but the wrapping is not the same
+# and numpy is more efficient.

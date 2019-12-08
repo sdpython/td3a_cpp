@@ -6,3 +6,6 @@ build/*
 *egg-info/*
 doc/auto_examples/*
 examples/dot_pyinstrument.html
+td3a_cpp/tutorial/*.c
+td3a_cpp/tutorial/*.pyd
+td3a_cpp/tutorial/*.so

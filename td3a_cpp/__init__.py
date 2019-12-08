@@ -17,13 +17,16 @@ def check(verbose=1):
     """
     import pprint
     import numpy
-    from .tutorial import pydot
+    from .tutorial import pydot, cblas_ddot
     from .tools import measure_time
 
     va = numpy.arange(0, 1000).astype(numpy.float64)
     vb = numpy.arange(0, 1000).astype(numpy.float64) - 5
-    fcts = [('pydot', pydot),
-            ('numpy.dot', numpy.dot)]
+    fcts = [
+        ('pydot', pydot),
+        ('numpy.dot', numpy.dot),
+        ('ddot', cblas_ddot),
+    ]
 
     rows = []
     for name, fct in fcts:

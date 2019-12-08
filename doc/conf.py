@@ -99,11 +99,21 @@ sphinx_gallery_conf = {
 }
 
 epkg_dictionary = {
+    'AVX': 'https://en.wikipedia.org/wiki/Advanced_Vector_Extensions',
+    'BLAS': 'http://www.netlib.org/blas/explore-html',
+    'C': 'https://en.wikipedia.org/wiki/C_(programming_language)',
+    'C++': 'https://en.wikipedia.org/wiki/C%2B%2B',
     'cython': 'https://cython.org/',
+    'JIT': 'https://en.wikipedia.org/wiki/Just-in-time_compilation',
+    'LAPACK': 'http://www.netlib.org/lapack/explore-html',
+    'llvmlite': 'https://llvmlite.readthedocs.io/en/latest/index.html',
     'numpy': 'https://numpy.org/',
+    'numba': 'https://numba.pydata.org/',
     'openmp': 'https://www.openmp.org/',
+    'pybind11': 'https://github.com/pybind/pybind11',
     'pyinstrument': 'https://github.com/joerick/pyinstrument',
     'py-spy': 'https://github.com/benfred/py-spy',
     'RUST': 'https://www.rust-lang.org/',
     'tqdm': 'https://github.com/tqdm/tqdm',
+    'SSE': 'https://fr.wikipedia.org/wiki/Streaming_SIMD_Extensions',
 }
