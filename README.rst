@@ -3,11 +3,11 @@
     :target: https://circleci.com/gh/sdpython/td3a_cpp/tree/master
 
 .. image:: https://travis-ci.org/sdpython/td3a_cpp.svg?branch=master
-    :target: https://travis-ci.org/sdpython/pymmails
+    :target: https://travis-ci.org/sdpython/td3a_cpp
     :alt: Build status
 
 .. image:: https://ci.appveyor.com/api/projects/status/wvo6ovlaxi8ypua4?svg=true
-    :target: https://ci.appveyor.com/project/sdpython/pymmails
+    :target: https://ci.appveyor.com/project/sdpython/td3a_cpp
     :alt: Build Status Windows
 
 .. image:: https://dev.azure.com/xavierdupre3/td3a_cpp/_apis/build/status/sdpython.td3a_cpp
