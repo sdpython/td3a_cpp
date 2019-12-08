@@ -4,7 +4,7 @@ matplotlib
 pillow
 py-spy
 pyinstrument
-pyquickhelper
+pyquickhelper>=1.9.3248
 sphinx
 sphinx-gallery
 tqdm
