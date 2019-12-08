@@ -2,6 +2,20 @@
 td3a_cpp: template for a python module with cython and openmp
 =============================================================
 
+.. image:: https://circleci.com/gh/sdpython/td3a_cpp/tree/master.svg?style=svg
+    :target: https://circleci.com/gh/sdpython/td3a_cpp/tree/master
+
+.. image:: https://travis-ci.org/sdpython/td3a_cpp.svg?branch=master
+    :target: https://travis-ci.org/sdpython/pymmails
+    :alt: Build status
+
+.. image:: https://ci.appveyor.com/api/projects/status/wvo6ovlaxi8ypua4?svg=true
+    :target: https://ci.appveyor.com/project/sdpython/pymmails
+    :alt: Build Status Windows
+
+.. image:: https://dev.azure.com/xavierdupre3/td3a_cpp/_apis/build/status/sdpython.td3a_cpp
+    :target: https://dev.azure.com/xavierdupre3/td3a_cpp/
+
 This package does nothing except showing how to package
 functions using :epkg:`cython` and :epkg:`openmp`
 to write parallelized algorithm.
