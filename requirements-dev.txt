@@ -3,6 +3,7 @@ flake8
 matplotlib
 pillow
 py-spy
+pandas
 pyinstrument
 pyquickhelper>=1.9.3248
 sphinx
