@@ -10,7 +10,7 @@ td3a_cpp: template for a python module with cython and openmp
     :alt: Build status
 
 .. image:: https://ci.appveyor.com/api/projects/status/wvo6ovlaxi8ypua4?svg=true
-    :target: https://ci.appveyor.com/project/sdpython/td3a_cpp
+    :target: https://ci.appveyor.com/project/sdpython/td3a-cpp
     :alt: Build Status Windows
 
 .. image:: https://dev.azure.com/xavierdupre3/td3a_cpp/_apis/build/status/sdpython.td3a_cpp
