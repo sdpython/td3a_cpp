@@ -48,7 +48,11 @@ double vector_dot_product_pointer16(const double *p1, const double *p2, int size
 }
 
 
-double vector_dot_product_pointer16_sse(const double *p1, const double *p2)
+double 
+#ifndef _WIN32
+__attribute__((__gnu_inline__, __always_inline__, __artificial__))
+#endif
+vector_dot_product_pointer16_sse(const double *p1, const double *p2)
 {
     __m256d c1 = _mm256_load_pd(p1);
     __m256d c2 = _mm256_load_pd(p2);
