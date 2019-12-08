@@ -1,7 +1,4 @@
 #include "dot_cython_.h"
-#include <emmintrin.h>  // for double m128d
-#include <immintrin.h>  // double double m256d
-#include <xmmintrin.h>  // for double m128
 
 #define BYN 16
 
@@ -47,6 +44,10 @@ double vector_dot_product_pointer16(const double *p1, const double *p2, int size
     return sum;
 }
 
+
+//#include <emmintrin.h>  // for double m128d
+#include <immintrin.h>  // double double m256d
+//#include <xmmintrin.h>  // for double m128
 
 double 
 #ifndef _WIN32
