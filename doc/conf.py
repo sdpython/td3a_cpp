@@ -102,4 +102,5 @@ epkg_dictionary = {
     'cython': 'https://cython.org/',
     'numpy': 'https://numpy.org/',
     'openmp': 'https://www.openmp.org/',
+    'tqdm': 'https://github.com/tqdm/tqdm',
 }

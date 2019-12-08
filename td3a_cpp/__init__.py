@@ -6,4 +6,3 @@ Template to develop a python module using
 
 __version__ = "0.1"
 __author__ = "Xavier Dupré"
-

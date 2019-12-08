@@ -12,7 +12,7 @@ class TestTutorialPyDot(unittest.TestCase):
         va = numpy.arange(10)
         vb = numpy.arange(10) - 5
         res1 = pydot(va, vb)
-        res2 = numpy.dot(va, vb)        
+        res2 = numpy.dot(va, vb)
         self.assertEqual(res1, res2)
 
 

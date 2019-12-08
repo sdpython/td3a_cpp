@@ -5,4 +5,5 @@ pillow
 pyquickhelper
 sphinx
 sphinx-gallery
+tqdm
 wheel

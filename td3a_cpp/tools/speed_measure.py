@@ -11,12 +11,12 @@ def measure_time(stmt, context, repeat=10, number=50, div_by_number=True):
     """
     Measures a statement and returns the results as a dictionary.
 
-    @param      stmt            string
-    @param      context         variable to know in a dictionary
-    @param      repeat          average over *repeat* experiment
-    @param      number          number of executions in one row
-    @param      div_by_number   divide by the number of executions
-    @return                     dictionary
+    :param stmt: string
+    :param context: variable to know in a dictionary
+    :param repeat: average over *repeat* experiment
+    :param number: number of executions in one row
+    :param div_by_number: divide by the number of executions
+    :return: dictionary
 
     .. runpython::
         :showcode:
@@ -28,7 +28,8 @@ def measure_time(stmt, context, repeat=10, number=50, div_by_number=True):
         res = measure_time("cos(x)", context=dict(cos=cos, x=5.))
         pprint.pprint(res)
 
-    See `Timer.repeat <https://docs.python.org/3/library/timeit.html?timeit.Timer.repeat>`_
+    See `Timer.repeat <https://docs.python.org/3/library/
+    timeit.html?timeit.Timer.repeat>`_
     for a better understanding of parameter *repeat* and *number*.
     The function returns a duration corresponding to
     *number* times the execution of the main statement.
@@ -52,37 +53,44 @@ def measure_time(stmt, context, repeat=10, number=50, div_by_number=True):
     return mes
 
 
-def measure_time_dim(stmt, contexts, repeat=10, number=50, div_by_number=True):
+def measure_time_dim(stmt, contexts, repeat=10, number=50,
+                     div_by_number=True, verbose=0):
     """
     Measures a statement multiple time with function :func:`measure_time_dim`.
 
-    @param      stmt            string
-    @param      contexts        variable to know in a dictionary,
-                                every context must include field 'x_name',
-                                which is copied in the result
-    @param      repeat          average over *repeat* experiment
-    @param      number          number of executions in one row
-    @param      div_by_number   divide by the number of executions
-    @return                     yield dictionary
+    :param stmt: string
+    :param contexts: variable to know in a dictionary,
+        every context must include field 'x_name',
+        which is copied in the result
+    :param repeat: average over *repeat* experiment
+    :param number: number of executions in one row
+    :param div_by_number: divide by the number of executions
+    :param verbose: if > 0, use :epkg:`tqdm` to display progress
+    :return: yield dictionary
 
     .. runpython::
         :showcode:
 
         import pprint
-        import numpy        
-        from td3a_cpp.tools import measure_time
+        import numpy
+        from td3a_cpp.tools import measure_time_dim
 
         res = list(measure_time_dim(
             "cos(x)",
-            context=[dict(cos=numpy.cos, x=numpy.arange(10), x_name=10),
-                     dict(cos=numpy.cos, x=numpy.arange(100), x_name=100)))
+            contexts=[dict(cos=numpy.cos, x=numpy.arange(10), x_name=10),
+                      dict(cos=numpy.cos, x=numpy.arange(100), x_name=100)]))
         pprint.pprint(res)
 
-    See `Timer.repeat <https://docs.python.org/3/library/timeit.html?timeit.Timer.repeat>`_
+    See `Timer.repeat <https://docs.python.org/3/library/
+    timeit.html?timeit.Timer.repeat>`_
     for a better understanding of parameter *repeat* and *number*.
     The function returns a duration corresponding to
     *number* times the execution of the main statement.
     """
+    if verbose > 0:
+        from tqdm import tqdm
+        contexts = tqdm(contexts)
+
     for context in contexts:
         if 'x_name' not in context:
             raise ValueError("The context must contain field 'x_name', "
