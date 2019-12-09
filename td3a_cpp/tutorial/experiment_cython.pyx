@@ -83,9 +83,9 @@ def cyfilter_dmax(double[::1] va, double mx):
 
 cdef extern from "experiment_cython_.h":
     cdef void filter_dmax(double *p1, cython.int size, double mx) nogil
-    cdef void filter_dmax2(double *p1, int size, double mx) nogil;
-    cdef void filter_dmax16(double *p1, int size, double mx) nogil;
-    cdef void filter_dmax4(double *p1, int size, double mx) nogil;
+    cdef void filter_dmax2(double *p1, int size, double mx) nogil
+    cdef void filter_dmax16(double *p1, int size, double mx) nogil
+    cdef void filter_dmax4(double *p1, int size, double mx) nogil
 
 
 @cython.boundscheck(False)
