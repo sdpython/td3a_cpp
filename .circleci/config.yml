@@ -37,9 +37,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python -m pytest
-
-# coverage run  --omit=tests/test_*.py -m unittest discover tests -v -v
+            coverage run  --omit=tests/test_*.py -m unittest discover tests -v -v
 
       - run:
           name: flake8

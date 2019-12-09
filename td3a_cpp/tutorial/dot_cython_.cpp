@@ -44,9 +44,10 @@ double vector_dot_product_pointer16(const double *p1, const double *p2, int size
 }
 
 
-//#include <emmintrin.h>  // for double m128d
+#ifdef _WIN32
+// Not available on all machines
+// It should depends on AVX constant not WIN32.
 #include <immintrin.h>  // double double m256d
-//#include <xmmintrin.h>  // for double m128
 
 double vector_dot_product_pointer16_sse(const double *p1, const double *p2)
 {
@@ -80,6 +81,76 @@ double vector_dot_product_pointer16_sse(const double *p1, const double *p2)
 
     return r[0] + r[1] + r[2] + r[3];
 }
+
+#else
+
+#include <emmintrin.h>  // for double m128d
+//#include <xmmintrin.h>  // for float m128
+
+double vector_dot_product_pointer16_sse(const double *p1, const double *p2)
+{
+    __m128d c1 = _mm_load_pd(p1);
+    __m128d c2 = _mm_load_pd(p2);
+    __m128d r1 = _mm_mul_pd(c1, c2);
+    
+    p1 += 2;
+    p2 += 2;
+    
+    c1 = _mm_load_pd(p1);
+    c2 = _mm_load_pd(p2);
+    r1 = _mm_add_pd(r1, _mm_mul_pd(c1, c2));
+    
+    p1 += 2;
+    p2 += 2;
+    
+    c1 = _mm_load_pd(p1);
+    c2 = _mm_load_pd(p2);
+    r1 = _mm_add_pd(r1, _mm_mul_pd(c1, c2));
+    
+    p1 += 2;
+    p2 += 2;
+    
+    c1 = _mm_load_pd(p1);
+    c2 = _mm_load_pd(p2);
+    r1 = _mm_add_pd(r1, _mm_mul_pd(c1, c2));
+    
+    // 8
+    
+    p1 += 2;
+    p2 += 2;
+    
+    c1 = _mm_load_pd(p1);
+    c2 = _mm_load_pd(p2);
+    r1 = _mm_add_pd(r1, _mm_mul_pd(c1, c2));
+    
+    p1 += 2;
+    p2 += 2;
+    
+    c1 = _mm_load_pd(p1);
+    c2 = _mm_load_pd(p2);
+    r1 = _mm_add_pd(r1, _mm_mul_pd(c1, c2));
+    
+    p1 += 2;
+    p2 += 2;
+    
+    c1 = _mm_load_pd(p1);
+    c2 = _mm_load_pd(p2);
+    r1 = _mm_add_pd(r1, _mm_mul_pd(c1, c2));
+    
+    p1 += 2;
+    p2 += 2;
+    
+    c1 = _mm_load_pd(p1);
+    c2 = _mm_load_pd(p2);
+    r1 = _mm_add_pd(r1, _mm_mul_pd(c1, c2));
+
+    double r[2];
+    _mm_store_pd(r, r1);
+
+    return r[0] + r[1];
+}
+
+#endif
 
 
 double vector_dot_product_pointer16_sse(const double *p1, const double *p2, int size)
