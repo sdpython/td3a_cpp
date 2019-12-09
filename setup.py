@@ -31,7 +31,7 @@ def get_defined_args():
         # mac osx
         define_macros = [('USE_OPENMP', None)]
         libraries = None
-        extra_compile_args = ['-lpthread', '-stdlib=libc++', '-std=c++11',
+        extra_compile_args = ['-lpthread', '-stdlib=libc++',
                               '-mmacosx-version-min=10.7', '-Xpreprocessor',
                               '-fopenmp', '-mavx2']
         extra_link_args = ["-lomp"]
