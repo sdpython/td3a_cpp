@@ -61,7 +61,7 @@ for n in tqdm([1000, 2000]):
 
 df = DataFrame(res).set_index('N')
 print(df)
-df.plot(logy=True)
+df.plot(logy=True, logx=True)
 plt.title("Parallel / numpy dot")
 
 #######################################

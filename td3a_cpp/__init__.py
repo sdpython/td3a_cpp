@@ -17,38 +17,77 @@ def check(verbose=1):
     """
     import pprint
     import numpy
-    from .tutorial import pydot, cblas_ddot
+    from .tutorial import pydot, cblas_ddot, cblas_sdot
     from .tutorial.dot_cython import (
-        dot_product, dot_cython_array,
-        dot_cython_array_optim, dot_array,
-        dot_array_16, dot_array_16_sse
+        dot_product, ddot_cython_array,
+        ddot_cython_array_optim, ddot_array,
+        ddot_array_16, ddot_array_16_sse
+    )
+    from .tutorial.dot_cython import (
+        sdot_cython_array,
+        sdot_cython_array_optim, sdot_array,
+        sdot_array_16, sdot_array_16_sse
     )
     from .tools import measure_time
+    rows = []
 
-    va = numpy.arange(0, 10000).astype(numpy.float64)
-    vb = numpy.arange(0, 10000).astype(numpy.float64) - 5
+    # double
+    if verbose > 0:
+        print("\ndouble\n")
+
+    va = numpy.random.randn(100).astype(numpy.float64)
+    vb = numpy.random.randn(100).astype(numpy.float64)
     fcts = [
         ('pydot', pydot, 1),
         ('numpy.dot', numpy.dot),
         ('ddot', cblas_ddot),
         ('dot_product', dot_product),
-        ('dot_cython_array', dot_cython_array),
-        ('dot_cython_array_optim', dot_cython_array_optim),
-        ('dot_array', dot_array),
-        ('dot_array_16', dot_array_16),
-        ('dot_array_16_sse', dot_array_16_sse),
+        ('ddot_cython_array', ddot_cython_array),
+        ('ddot_cython_array_optim', ddot_cython_array_optim),
+        ('ddot_array', ddot_array),
+        ('ddot_array_16', ddot_array_16),
+        ('ddot_array_16_sse', ddot_array_16_sse),
     ]
 
-    rows = []
     for tu in fcts:
         name, fct = tu[:2]
-        ctx = {'va': va, 'vb': vb, 'fdot': fct}
+        ctx = {'va': va, 'vb': vb, 'fctdot': fct}
         if len(tu) == 3:
-            res = measure_time('fdot(va, vb)', ctx, repeat=tu[2])
+            res = measure_time('fctdot(va, vb)', ctx, repeat=tu[2])
         else:
-            res = measure_time('fdot(va, vb)', ctx)
+            res = measure_time('fctdot(va, vb)', ctx)
         res['name'] = name
         if verbose > 0:
             pprint.pprint(res)
         rows.append(res)
+
+    # float
+    if verbose > 0:
+        print("\nfloat\n")
+
+    va = numpy.random.randn(100).astype(numpy.float32)
+    vb = numpy.random.randn(100).astype(numpy.float32)
+    fcts = [
+        ('pydot', pydot, 1),
+        ('numpy.dot', numpy.dot),
+        ('sdot', cblas_sdot),
+        ('sdot_cython_array', sdot_cython_array),
+        ('sdot_cython_array_optim', sdot_cython_array_optim),
+        ('sdot_array', sdot_array),
+        ('sdot_array_16', sdot_array_16),
+        ('sdot_array_16_sse', sdot_array_16_sse),
+    ]
+
+    for tu in fcts:
+        name, fct = tu[:2]
+        ctx = {'va': va, 'vb': vb, 'fctdot': fct}
+        if len(tu) == 3:
+            res = measure_time('fctdot(va, vb)', ctx, repeat=tu[2])
+        else:
+            res = measure_time('fctdot(va, vb)', ctx)
+        res['name'] = name
+        if verbose > 0:
+            pprint.pprint(res)
+        rows.append(res)
+
     return rows

@@ -83,8 +83,10 @@ cc = concat([df1, df2, df3])
 cc['N'] = cc['x_name']
 
 fig, ax = plt.subplots(1, 2, figsize=(10, 4))
-cc[cc.N <= 1100].pivot('N', 'fct', 'average').plot(logy=True, ax=ax[0])
-cc[cc.fct != 'pydot'].pivot('N', 'fct', 'average').plot(logy=True, ax=ax[1])
+cc[cc.N <= 1100].pivot('N', 'fct', 'average').plot(
+    logy=True, logx=True, ax=ax[0])
+cc[cc.fct != 'pydot'].pivot('N', 'fct', 'average').plot(
+    logy=True, logx=True, ax=ax[1])
 ax[0].set_title("Comparison of dot implementations")
 ax[1].set_title("Comparison of dot implementations\nwithout python")
 
