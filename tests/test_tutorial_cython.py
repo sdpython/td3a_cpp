@@ -13,18 +13,47 @@ from td3a_cpp.tutorial.dot_cython import (
 
 class TestTutorialDot(unittest.TestCase):
 
-    def test_all_dot(self):
+    def test_dot_product(self):
         va = numpy.random.randn(100).astype(numpy.float64)
         vb = numpy.random.randn(100).astype(numpy.float64)
-        fcts = [dot_product, dot_cython_array,
-                dot_cython_array_optim, dot_array,
-                dot_array_16, dot_array_16_sse]
-        res = []
-        for fct in fcts:
-            r = fct(va, vb)
-            res.append(r)
-        for r in res[1:]:
-            self.assertTrue(abs(res[0] - r) <= 1e-12)
+        res1 = numpy.dot(va, vb)
+        res2 = dot_product(va, vb)
+        self.assertTrue(abs(res1 - res2) <= 1e-12)
+
+    def test_dot_cython_array(self):
+        va = numpy.random.randn(100).astype(numpy.float64)
+        vb = numpy.random.randn(100).astype(numpy.float64)
+        res1 = numpy.dot(va, vb)
+        res2 = dot_cython_array(va, vb)
+        self.assertTrue(abs(res1 - res2) <= 1e-12)
+
+    def test_dot_cython_array_optim(self):
+        va = numpy.random.randn(100).astype(numpy.float64)
+        vb = numpy.random.randn(100).astype(numpy.float64)
+        res1 = numpy.dot(va, vb)
+        res2 = dot_cython_array_optim(va, vb)
+        self.assertTrue(abs(res1 - res2) <= 1e-12)
+
+    def test_dot_array(self):
+        va = numpy.random.randn(100).astype(numpy.float64)
+        vb = numpy.random.randn(100).astype(numpy.float64)
+        res1 = numpy.dot(va, vb)
+        res2 = dot_array(va, vb)
+        self.assertTrue(abs(res1 - res2) <= 1e-12)
+
+    def test_dot_array_16(self):
+        va = numpy.random.randn(100).astype(numpy.float64)
+        vb = numpy.random.randn(100).astype(numpy.float64)
+        res1 = numpy.dot(va, vb)
+        res2 = dot_array_16(va, vb)
+        self.assertTrue(abs(res1 - res2) <= 1e-12)
+
+    def test_dot_array_16_sse(self):
+        va = numpy.random.randn(100).astype(numpy.float64)
+        vb = numpy.random.randn(100).astype(numpy.float64)
+        res1 = numpy.dot(va, vb)
+        res2 = dot_array_16_sse(va, vb)
+        self.assertTrue(abs(res1 - res2) <= 1e-12)
 
     def test_ddot(self):
         va = numpy.random.randn(100).astype(numpy.float64)
