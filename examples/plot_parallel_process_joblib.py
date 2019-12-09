@@ -47,7 +47,7 @@ print(parallel_dot_joblib(va, vb), numpy.dot(va, vb))
 
 
 res = []
-for n in tqdm([100000, 200000, 300000]):
+for n in tqdm([1000, 2000, 3000]):
     va = numpy.random.randn(n).astype(numpy.float64)
     vb = numpy.random.randn(n).astype(numpy.float64)
 
