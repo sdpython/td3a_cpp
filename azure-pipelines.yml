@@ -76,10 +76,10 @@ jobs:
     displayName: 'Install omp'
   - script: brew install p7zip
     displayName: 'Install p7zip'
-  - script: brew install pandoc
-    displayName: 'Install Pandoc'
-  - script: brew install graphviz
-    displayName: 'Install Graphviz'
+#  - script: brew install pandoc
+#    displayName: 'Install Pandoc'
+#  - script: brew install graphviz
+#    displayName: 'Install Graphviz'
   - script: python -m pip install --upgrade pip setuptools wheel
     displayName: 'Install tools'
   - script: brew install pybind11
