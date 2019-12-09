@@ -70,7 +70,7 @@ jobs:
           name: documentation
           command: |
             . venv/bin/activate
-            sphinx-build -D "sphinx_gallery_conf.filename_pattern=/plot_(?!long)" html doc test-reports
+            sphinx-build -D "sphinx_gallery_conf.filename_pattern=/plot_(?!long)" doc test-reports
 
       - store_artifacts:
           path: test-reports

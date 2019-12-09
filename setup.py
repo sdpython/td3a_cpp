@@ -60,7 +60,8 @@ def get_extension_tutorial(name):
         args['language'] = "c++"
     else:
         if sys.platform.startswith("darwin"):
-            args['extra_compile_args'].append('-std=c++11')
+            if name == 'dot_cython':
+                args['extra_compile_args'].append('-std=c++11')
 
     ext = Extension(pattern1 % name,
                     srcs,
