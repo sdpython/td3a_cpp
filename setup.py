@@ -33,7 +33,7 @@ def get_defined_args():
         libraries = None
         extra_compile_args = ['-lpthread', '-stdlib=libc++',
                               '-mmacosx-version-min=10.7', '-Xpreprocessor',
-                              '-fopenmp', '-mavx2']
+                              '-fopenmp']
         extra_link_args = ["-lomp"]
     else:
         # linux
@@ -58,6 +58,10 @@ def get_extension_tutorial(name):
     if name == 'dot_cython':
         srcs.extend(['td3a_cpp/tutorial/%s_.cpp' % name])
         args['language'] = "c++"
+    else:
+        if sys.platform.startswith("darwin"):
+            args['extra_compile_args'].append('-std=c++11')
+
     ext = Extension(pattern1 % name,
                     srcs,
                     include_dirs=[numpy.get_include()],
