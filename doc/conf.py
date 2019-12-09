@@ -104,10 +104,11 @@ epkg_dictionary = {
     'branching': 'https://en.wikipedia.org/wiki/Branch_(computer_science)',
     'C': 'https://en.wikipedia.org/wiki/C_(programming_language)',
     'C++': 'https://en.wikipedia.org/wiki/C%2B%2B',
-    'compiler directives': ('https://cython.readthedocs.io/en/latest/src/'
-                           'userguide/source_files_and_compilation.html'
-                           '#compiler-directives'),
-    'cython': 'https://cython.org/',    
+    'compiler directives':
+        ('https://cython.readthedocs.io/en/latest/src/'
+         'userguide/source_files_and_compilation.html'
+         '#compiler-directives'),
+    'cython': 'https://cython.org/',
     'JIT': 'https://en.wikipedia.org/wiki/Just-in-time_compilation',
     'LAPACK': 'http://www.netlib.org/lapack/explore-html',
     'llvmlite': 'https://llvmlite.readthedocs.io/en/latest/index.html',
