@@ -19,6 +19,7 @@ td3a_cpp
 .. image:: https://raw.githubusercontent.com/sdpython/td3a_cpp/master/doc/_static/logo.png
     :width: 50
 
+`documentation <http://www.xavierdupre.fr/app/td3a_cpp/helpsphinx/index.html>`_
 
 Simple template to implement an algorithm with *cython* and *openmp*.
 It implements simple examples to demonstrate the speed up

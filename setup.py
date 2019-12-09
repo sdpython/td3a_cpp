@@ -58,13 +58,11 @@ def get_extension_tutorial(name):
     if name == 'dot_cython':
         srcs.extend(['td3a_cpp/tutorial/%s_.cpp' % name])
         args['language'] = "c++"
-    else:
-        if sys.platform.startswith("darwin"):
-            if name == 'dot_cython':
-                args['extra_compile_args'].append('-std=c++11')
+    elif name == 'experiment_cython':
+        srcs.extend(['td3a_cpp/tutorial/%s_.cpp' % name])
+        args['language'] = "c++"
 
-    ext = Extension(pattern1 % name,
-                    srcs,
+    ext = Extension(pattern1 % name, srcs,
                     include_dirs=[numpy.get_include()],
                     **args)
 
@@ -97,7 +95,7 @@ if len(requirements) == 0 or requirements == ['']:
     requirements = []
 
 ext_modules = []
-for ext in ['dot_blas_lapack', 'dot_cython']:
+for ext in ['dot_blas_lapack', 'dot_cython', 'experiment_cython']:
     ext_modules.extend(get_extension_tutorial(ext))
 
 

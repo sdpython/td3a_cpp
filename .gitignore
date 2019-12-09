@@ -11,3 +11,4 @@ td3a_cpp/tutorial/*.pyd
 td3a_cpp/tutorial/*.so
 td3a_cpp/tutorial/dot_cython.cpp
 td3a_cpp/tutorial/dot_blas_lapack.cpp
+td3a_cpp/tutorial/experiment_cython.cpp
