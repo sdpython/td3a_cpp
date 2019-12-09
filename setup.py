@@ -24,23 +24,30 @@ def get_defined_args():
     if sys.platform.startswith("win"):
         # windows
         define_macros = [('USE_OPENMP', None)]
-        libraries = None
-        extra_compile_args = ['/EHsc', '/O2', '/Gy']
+        libraries = ['kernel32']
+        extra_compile_args = ['/EHsc', '/O2', '/Gy', '/openmp']
+        extra_link_args = None
     elif sys.platform.startswith("darwin"):
         # mac osx
         define_macros = [('USE_OPENMP', None)]
         libraries = None
-        extra_compile_args = ['-mavx2']
+        extra_compile_args = ['-lpthread', '-stdlib=libc++', '-std=c++11',
+                              '-mmacosx-version-min=10.7', '-Xpreprocessor',
+                              '-fopenmp', '-mavx2']
+        extra_link_args = ["-lomp"]
     else:
         # linux
         define_macros = [('USE_OPENMP', None)]
         libraries = None
-        extra_compile_args = ['-mavx2']
+        extra_compile_args = ['-lpthread', '-std=c++11', '-fopenmp',
+                              '-mavx2', '-fpermissive']
+        extra_link_args = ['-lgomp']
 
     return {
         'define_macros': define_macros,
         'libraries': libraries,
         'extra_compile_args': extra_compile_args,
+        'extra_link_args': extra_link_args,
     }
 
 
