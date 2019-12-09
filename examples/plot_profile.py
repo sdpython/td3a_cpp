@@ -80,12 +80,7 @@ if profiler is not None:
         f.write(profiler.output_html())
 
 #######################################
-# It looks like this:
-#
-# .. raw:: html
-#       :file: _dot_pyinstrument.html
-#
-#
+# See :ref:`l-appendix-example-dot-profile`.
 # :epkg:`pyinstrument` does not measure native function (C++)
 # very well. For this module :epkg:`py-spy` is more efficient
 # but it only works in command line as the package itself
@@ -100,11 +95,7 @@ if profiler is not None:
     run_cmd(cmd, wait=True, fLOG=print)
 
 #######################################
-# It looks like this:
-#
-# .. raw:: html
-#       :file: _dotpyspy.svg
-#
+# See :ref:`l-appendix-example-dot-profile`.
 # We see that :func:`cblas_ddot` and `numpy.dot` uses
 # the same C function but the wrapping is not the same
 # and numpy is more efficient.

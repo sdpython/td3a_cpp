@@ -26,6 +26,7 @@ to write parallelized algorithm.
     api
     auto_examples/index
     dev
+    appendix/index
 
 Sources available on
 `github/td3a_cpp <https://github.com/sdpython/td3a_cpp>`_.
