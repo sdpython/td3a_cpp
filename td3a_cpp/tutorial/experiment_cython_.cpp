@@ -19,25 +19,25 @@ void filter_dmax2(double *p1, int size, double mx)
 
 void _filter_dmax16(double *&p1, double mx)
 {
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
 
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
 
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
 
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
 }
 
 
@@ -55,10 +55,10 @@ void filter_dmax16(double *p1, int size, double mx)
 
 void _filter_dmax4(double *p1, double mx)
 {
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
-    *p1++ = *p1 > mx ? mx : *p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
+    *p1 = *p1 > mx ? mx : *p1; ++p1;
 }
 
 

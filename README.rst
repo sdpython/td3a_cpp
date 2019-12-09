@@ -59,3 +59,7 @@ To check style:
 ::
 
     python -m flake8 td3a_cpp tests examples
+
+The function *check* or the command line ``python -m td3a_cpp check``
+checks the module is properly installed and returns processing
+time for a couple of functions.
