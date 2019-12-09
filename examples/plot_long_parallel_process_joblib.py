@@ -52,7 +52,8 @@ for n in tqdm([1000, 2000]):
     vb = numpy.random.randn(n).astype(numpy.float64)
 
     m1 = measure_time('dot(va, vb, 2)',
-                      dict(va=va, vb=vb, dot=parallel_dot_joblib))
+                      dict(va=va, vb=vb, dot=parallel_dot_joblib),
+                      repeat=1)
     m2 = measure_time('dot(va, vb)',
                       dict(va=va, vb=vb, dot=numpy.dot))
     res.append({'N': n, 'numpy.dot': m2['average'],
