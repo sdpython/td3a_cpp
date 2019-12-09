@@ -40,7 +40,7 @@ def get_defined_args():
         define_macros = [('USE_OPENMP', None)]
         libraries = None
         extra_compile_args = ['-lpthread', '-std=c++11', '-fopenmp',
-                              '-mavx2', '-fpermissive']
+                              '-fpermissive']  # '-mavx2'
         extra_link_args = ['-lgomp']
 
     return {
