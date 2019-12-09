@@ -2,15 +2,15 @@
 
 .. _l-example-dot:
 
-Compares dot implementations
-============================
+Compares dot implementations (numpy, python, blas)
+==================================================
 
 :epkg:`numpy` has a very fast implementation of
 the dot product. It is difficult to be better and very easy
 to be slower. This example looks into a couple of slower
 implementations.
 
-.. content::
+.. contents::
     :local:
 """
 

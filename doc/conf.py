@@ -119,6 +119,7 @@ epkg_dictionary = {
     'openmp': 'https://www.openmp.org/',
     'pybind11': 'https://github.com/pybind/pybind11',
     'pyinstrument': 'https://github.com/joerick/pyinstrument',
+    'python': 'https://www.python.org/',
     'py-spy': 'https://github.com/benfred/py-spy',
     'RUST': 'https://www.rust-lang.org/',
     'sphinx-gallery': 'https://github.com/sphinx-gallery/sphinx-gallery',

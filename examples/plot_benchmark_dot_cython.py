@@ -2,8 +2,8 @@
 
 .. _l-example-dot-cython:
 
-Compares dot cython implementations
-===================================
+Compares dot implementations (numpy, cython, c++, sse)
+======================================================
 
 :epkg:`numpy` has a very fast implementation of
 the dot product. It is difficult to be better and very easy
@@ -19,7 +19,7 @@ the following:
 * :func:`dot_array_16 <td3a_cpp.tutorial.dot_cython.dot_array_16>`
 * :func:`dot_array_16_sse <td3a_cpp.tutorial.dot_cython.dot_array_16_sse>`
 
-.. content::
+.. contents::
     :local:
 """
 

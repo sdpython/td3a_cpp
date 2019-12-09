@@ -137,7 +137,7 @@ def dot_array_16_sse(const double[::1] va, const double[::1] vb):
     and :epkg:`nogil`. It is a wrapper for a C function
     as they cannot be exposed to the python world
     (gil is disabled). Computation is done 16x16 to
-    benefit from :epkg:`branching` and uses :AVX:
+    benefit from :epkg:`branching` and uses :epkg:`AVX`
     instructions.
         
     :param va: first vector, dtype must be float64
