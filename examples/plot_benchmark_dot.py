@@ -29,8 +29,8 @@ from td3a_cpp.tools import measure_time_dim
 # <td3a_cpp.tutorial.pydot>` uses
 # python to implement the dot product.
 
-ctxs = [dict(va=numpy.arange(n).astype(numpy.float64),
-             vb=numpy.arange(n).astype(numpy.float64) - 5,
+ctxs = [dict(va=numpy.random.randn(n).astype(numpy.float64),
+             vb=numpy.random.randn(n).astype(numpy.float64),
              pydot=pydot,
              x_name=n)
         for n in range(10, 1000, 100)]
@@ -44,8 +44,8 @@ pprint.pprint(res_pydot[:2])
 # +++++++++
 #
 
-ctxs = [dict(va=numpy.arange(n).astype(numpy.float64),
-             vb=numpy.arange(n).astype(numpy.float64) - 5,
+ctxs = [dict(va=numpy.random.randn(n).astype(numpy.float64),
+             vb=numpy.random.randn(n).astype(numpy.float64),
              dot=numpy.dot,
              x_name=n)
         for n in range(10, 50000, 100)]

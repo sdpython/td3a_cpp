@@ -24,8 +24,8 @@ from pyquickhelper.loghelper import run_cmd
 from td3a_cpp.tutorial import pydot, cblas_ddot
 
 
-va = numpy.arange(100000).astype(numpy.float64)
-vb = numpy.arange(100000).astype(numpy.float64) - 5
+va = numpy.random.randn(100000).astype(numpy.float64)
+vb = numpy.random.randn(100000).astype(numpy.float64)
 
 
 def f1_python(va, vb, n=10):

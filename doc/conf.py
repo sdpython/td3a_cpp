@@ -108,8 +108,11 @@ epkg_dictionary = {
         ('https://cython.readthedocs.io/en/latest/src/'
          'userguide/source_files_and_compilation.html'
          '#compiler-directives'),
+    'concurrent.futures':
+        'https://docs.python.org/3/library/concurrent.futures.html',
     'cython': 'https://cython.org/',
     'JIT': 'https://en.wikipedia.org/wiki/Just-in-time_compilation',
+    'joblib': 'https://joblib.readthedocs.io/',
     'LAPACK': 'http://www.netlib.org/lapack/explore-html',
     'llvmlite': 'https://llvmlite.readthedocs.io/en/latest/index.html',
     'nogil': ('https://cython.readthedocs.io/en/latest/src/userguide/'

@@ -35,8 +35,8 @@ from td3a_cpp.tools import measure_time_dim
 
 
 def get_vectors(fct, n, h=100):
-    ctxs = [dict(va=numpy.arange(n).astype(numpy.float64),
-                 vb=numpy.arange(n).astype(numpy.float64) - 5,
+    ctxs = [dict(va=numpy.random.randn(n).astype(numpy.float64),
+                 vb=numpy.random.randn(n).astype(numpy.float64),
                  dot=fct,
                  x_name=n)
             for n in range(10, n, h)]
