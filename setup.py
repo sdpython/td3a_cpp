@@ -11,6 +11,8 @@ import numpy
 ##########
 
 
+# Placeholder to change the default
+# compilation for command ``build_ext --inplace``.
 def get_cmd_classes():
 
     class build_ext_subclass(build_ext):
@@ -88,10 +90,27 @@ package_data = {
     "td3a_cpp.tutorial": ["*.pyx", '*.cpp', '*.h'],
 }
 
-with open(os.path.join(here, "requirements.txt"), "r") as f:
-    requirements = f.read().strip(' \n\r\t').split('\n')
+try:
+    with open(os.path.join(here, "requirements.txt"), "r") as f:
+        requirements = f.read().strip(' \n\r\t').split('\n')
+except FileNotFoundError:
+    requirements = []
 if len(requirements) == 0 or requirements == ['']:
     requirements = []
+
+try:
+    with open(os.path.join(here, "readme.rst"), "r", encoding='utf-8') as f:
+        long_description = "td3a_cpp:" + f.read().split('td3a_cpp:')[1]
+except FileNotFoundError:
+    long_description = ""
+
+version_str = '0.0.1'
+with open(os.path.join(here, 'td3a_cpp/__init__.py'), "r") as f:
+    line = [_ for _ in [_.strip("\r\n ")
+                        for _ in f.readlines()]
+            if _.startswith("__version__")]
+    if len(line) > 0:
+        version_str = line[0].split('=')[1].strip('" ')
 
 ext_modules = []
 for ext in ['dot_blas_lapack', 'dot_cython',
@@ -100,9 +119,9 @@ for ext in ['dot_blas_lapack', 'dot_cython',
 
 
 setup(name='td3a_cpp',
-      version='0.1',
+      version=version_str,
       description="Example of a python module including cython and openmp",
-      long_description="Exemple d'un module python incluant cython et openmp",
+      long_description=long_description,
       author='Xavier Dupré',
       author_email='xavier.dupre@gmail.com',
       url='https://github.com/sdpython/td3a_cpp',
@@ -111,5 +130,5 @@ setup(name='td3a_cpp',
       package_dir=package_dir,
       package_data=package_data,
       setup_requires=["cython", "numpy", "scipy"],
-      requires=requirements,
+      install_requires=["cython", "numpy", "scipy"],
       cmdclass=get_cmd_classes())

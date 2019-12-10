@@ -13,8 +13,8 @@
 .. image:: https://dev.azure.com/xavierdupre3/td3a_cpp/_apis/build/status/sdpython.td3a_cpp
     :target: https://dev.azure.com/xavierdupre3/td3a_cpp/
 
-td3a_cpp
-========
+td3a_cpp: template to use cython and C++ with python
+====================================================
 
 .. image:: https://raw.githubusercontent.com/sdpython/td3a_cpp/master/doc/_static/logo.png
     :width: 50
@@ -62,4 +62,9 @@ To check style:
 
 The function *check* or the command line ``python -m td3a_cpp check``
 checks the module is properly installed and returns processing
-time for a couple of functions.
+time for a couple of functions or simply:
+
+::
+
+    import td3a_cpp
+    td3a_cpp.check()
