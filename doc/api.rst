@@ -58,7 +58,7 @@ dot
 
 .. autofunction:: td3a_cpp.tutorial.dot_cython_omp.ddot_array_openmp
 
-.. autofunction:: td3a_cpp.tutorial.dot_cython_omp_16.ddot_array_openmp_16
+.. autofunction:: td3a_cpp.tutorial.dot_cython_omp.ddot_array_openmp_16
 
 
 filter
