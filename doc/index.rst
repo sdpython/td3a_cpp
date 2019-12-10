@@ -23,6 +23,7 @@ to write parallelized algorithm.
 .. toctree::
     :maxdepth: 2
 
+    tutorial
     api
     auto_examples/index
     dev
