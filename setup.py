@@ -40,7 +40,9 @@ def get_defined_args():
         define_macros = [('USE_OPENMP', None)]
         libraries = None
         extra_compile_args = ['-lpthread', '-std=c++11', '-fopenmp',
-                              '-fpermissive']  # '-mavx2'
+                              '-fpermissive']
+        # option '-mavx2' forces the compiler to use
+        # AVX instructions the processor might not have
         extra_link_args = ['-lgomp']
 
     return {
@@ -55,10 +57,7 @@ def get_extension_tutorial(name):
     pattern1 = "td3a_cpp.tutorial.%s"
     srcs = ['td3a_cpp/tutorial/%s.pyx' % name]
     args = get_defined_args()
-    if name == 'dot_cython':
-        srcs.extend(['td3a_cpp/tutorial/%s_.cpp' % name])
-        args['language'] = "c++"
-    elif name == 'experiment_cython':
+    if name in ['dot_cython', 'experiment_cython', 'dot_cython_omp']:
         srcs.extend(['td3a_cpp/tutorial/%s_.cpp' % name])
         args['language'] = "c++"
 
@@ -95,7 +94,8 @@ if len(requirements) == 0 or requirements == ['']:
     requirements = []
 
 ext_modules = []
-for ext in ['dot_blas_lapack', 'dot_cython', 'experiment_cython']:
+for ext in ['dot_blas_lapack', 'dot_cython',
+            'experiment_cython', 'dot_cython_omp']:
     ext_modules.extend(get_extension_tutorial(ext))
 
 

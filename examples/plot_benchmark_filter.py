@@ -15,10 +15,10 @@ to :epkg:`numpy`.
 * :func:`cfilter_dmax4 <td3a_cpp.tutorial.experiment_cython.cfilter_dmax4>`
 * :func:`cfilter_dmax16 <td3a_cpp.tutorial.experiment_cython.cfilter_dmax16>`
 * :func:`cyfilter_dmax <td3a_cpp.tutorial.experiment_cython.cyfilter_dmax>`
-* :func:`filter_dmax_cython <td3a_cpp.tutorial.
-  experiment_cython.filter_dmax_cython>`
-* :func:`filter_dmax_cython_optim <td3a_cpp.tutorial.experiment_cython.
-  filter_dmax_cython_optim>`
+* :func:`filter_dmax_cython
+  <td3a_cpp.tutorial.experiment_cython.filter_dmax_cython>`
+* :func:`filter_dmax_cython_optim
+  <td3a_cpp.tutorial.experiment_cython.filter_dmax_cython_optim>`
 * :func:`pyfilter_dmax <td3a_cpp.tutorial.experiment_cython.pyfilter_dmax>`
 """
 

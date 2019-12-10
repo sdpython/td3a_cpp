@@ -120,6 +120,8 @@ epkg_dictionary = {
     'numpy': 'https://numpy.org/',
     'numba': 'https://numba.pydata.org/',
     'openmp': 'https://www.openmp.org/',
+    'prange': ('https://cython.readthedocs.io/en/latest/'
+               'src/userguide/parallelism.html'),
     'pybind11': 'https://github.com/pybind/pybind11',
     'pyinstrument': 'https://github.com/joerick/pyinstrument',
     'python': 'https://www.python.org/',

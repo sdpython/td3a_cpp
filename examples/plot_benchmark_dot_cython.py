@@ -12,7 +12,7 @@ implementations with cython. The tested functions are
 the following:
 
 * :func:`dot_product <td3a_cpp.tutorial.dot_cython.dot_product>`
-* :func:`ddot_cython_array <td3a_cpp.tutorial.dot_cython.dot_cython_array>`
+* :func:`ddot_cython_array <td3a_cpp.tutorial.dot_cython.ddot_cython_array>`
 * :func:`ddot_cython_array_optim
   <td3a_cpp.tutorial.dot_cython.ddot_cython_array_optim>`
 * :func:`ddot_array <td3a_cpp.tutorial.dot_cython.ddot_array>`

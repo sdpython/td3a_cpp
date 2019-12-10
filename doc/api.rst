@@ -38,7 +38,7 @@ dot
 
 .. autofunction:: td3a_cpp.tutorial.dot_cython.sdot_array_16_sse
 
-**double**
+**double = float64**
 
 .. autofunction:: td3a_cpp.tutorial.dot_cython.ddot_cython_array
 
@@ -50,8 +50,27 @@ dot
 
 .. autofunction:: td3a_cpp.tutorial.dot_cython.ddot_array_16_sse
 
+**openmp**
+
+.. autofunction:: td3a_cpp.tutorial.dot_cython_omp.get_omp_max_threads
+
+.. autofunction:: td3a_cpp.tutorial.dot_cython_omp.ddot_cython_array_omp
+
+.. autofunction:: td3a_cpp.tutorial.dot_cython_omp.ddot_array_openmp
+
+.. autofunction:: td3a_cpp.tutorial.dot_cython_omp_16.ddot_array_openmp_16
+
+
 filter
 ^^^^^^
+
+.. autofunction:: td3a_cpp.tutorial.experiment_cython.pyfilter_dmax
+
+.. autofunction:: td3a_cpp.tutorial.experiment_cython.filter_dmax_cython
+
+.. autofunction:: td3a_cpp.tutorial.experiment_cython.filter_dmax_cython_optim
+
+.. autofunction:: td3a_cpp.tutorial.experiment_cython.cyfilter_dmax
 
 .. autofunction:: td3a_cpp.tutorial.experiment_cython.cfilter_dmax
 
@@ -61,10 +80,3 @@ filter
 
 .. autofunction:: td3a_cpp.tutorial.experiment_cython.cfilter_dmax16
 
-.. autofunction:: td3a_cpp.tutorial.experiment_cython.cyfilter_dmax
-
-.. autofunction:: td3a_cpp.tutorial.experiment_cython.filter_dmax_cython
-
-.. autofunction:: td3a_cpp.tutorial.experiment_cython.filter_dmax_cython_optim
-
-.. autofunction:: td3a_cpp.tutorial.experiment_cython.pyfilter_dmax
