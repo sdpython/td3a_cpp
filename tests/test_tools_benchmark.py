@@ -25,6 +25,14 @@ class TestToolsBenchmark(unittest.TestCase):
         self.assertIsInstance(ms, list)
         self.assertEqual(len(ms), 100)
 
+    def test_measure_raise(self):
+        ctx = [dict(x_name2=i, va=numpy.arange(i),
+                    vb=numpy.arange(10) - 5,
+                    pydot=pydot)
+               for i in range(10, 10000, 100)]
+        with self.assertRaises(ValueError):
+            list(measure_time_dim('pydot(va, vb)', ctx, verbose=1))
+
 
 if __name__ == '__main__':
     unittest.main()
