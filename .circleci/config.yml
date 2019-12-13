@@ -66,11 +66,11 @@ jobs:
             . venv/bin/activate
             python -m td3a_cpp check
 
-      - run:
-          name: documentation
-          command: |
-            . venv/bin/activate
-            sphinx-build -D "sphinx_gallery_conf.filename_pattern=/plot_(?!long)" doc test-reports
+#      - run:
+#          name: documentation
+#          command: |
+#            . venv/bin/activate
+#            sphinx-build -D "sphinx_gallery_conf.filename_pattern=/plot_(?!long)" doc test-reports
 
       - store_artifacts:
           path: test-reports
