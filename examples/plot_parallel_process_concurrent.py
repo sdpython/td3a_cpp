@@ -2,7 +2,7 @@
 
 .. _l-example-dot-process:
 
-Parallelization of a dot produce with processes (concurrent.futures)
+Parallelization of a dot product with processes (concurrent.futures)
 ====================================================================
 
 Uses processes to parallelize a dot product is not

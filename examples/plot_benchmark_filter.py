@@ -87,7 +87,9 @@ ax[0, 0].set_title("Comparison of filter implementations")
 ax[0, 1].set_title("Comparison of filter implementations\n"
                    "without pyfilter_dmax")
 
-###################
-# :epkg:`numpy` is cleary faster.
+#################################
+# The results depends on the machine, its
+# number of cores, the compilation settings
+# of :epkg:`numpy` or this module.
 
 plt.show()

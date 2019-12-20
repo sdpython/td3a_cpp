@@ -90,7 +90,9 @@ cc[cc.fct != 'pydot'].pivot('N', 'fct', 'average').plot(
 ax[0].set_title("Comparison of dot implementations")
 ax[1].set_title("Comparison of dot implementations\nwithout python")
 
-###################
-# :epkg:`numpy` is cleary faster.
+#################################
+# The results depends on the machine, its
+# number of cores, the compilation settings
+# of :epkg:`numpy` or this module.
 
 plt.show()

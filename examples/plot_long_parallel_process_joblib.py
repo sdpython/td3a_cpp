@@ -2,7 +2,7 @@
 
 .. _l-example-dot-joblib:
 
-Parallelization of a dot produce with processes (joblib)
+Parallelization of a dot product with processes (joblib)
 ========================================================
 
 Uses processes to parallelize a dot product is not
