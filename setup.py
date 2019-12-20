@@ -41,8 +41,7 @@ def get_defined_args():
         # linux
         define_macros = [('USE_OPENMP', None)]
         libraries = None
-        extra_compile_args = ['-lpthread', '-std=c++11', '-fopenmp',
-                              '-fpermissive']
+        extra_compile_args = ['-lpthread', '-fopenmp']
         # option '-mavx2' forces the compiler to use
         # AVX instructions the processor might not have
         extra_link_args = ['-lgomp']
