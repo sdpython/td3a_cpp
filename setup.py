@@ -83,6 +83,8 @@ def get_extension_tutorial(name):
 
 
 here = os.path.dirname(__file__)
+if here == "":
+    here = '.'
 packages = find_packages(where=here)
 package_dir = {k: os.path.join(here, k.replace(".", "/")) for k in packages}
 package_data = {
