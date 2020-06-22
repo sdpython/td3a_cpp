@@ -27,6 +27,10 @@ td3a_cpp: template for a python module with cython and openmp
     :alt: MIT License
     :target: http://opensource.org/licenses/MIT
 
+.. image:: https://img.shields.io/github/repo-size/sdpython/td3a_cpp
+    :target: https://github.com/sdpython/td3a_cpp/
+    :alt: size
+
 This package does nothing except showing how to package
 functions using :epkg:`cython` and :epkg:`openmp`
 to write parallelized algorithm.
