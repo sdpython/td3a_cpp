@@ -107,7 +107,8 @@ class TestTutorialDot(unittest.TestCase):
         vb = numpy.random.randn(100).astype(numpy.float32)
         res1 = cblas_sdot(va, vb)
         res2 = numpy.dot(va, vb)
-        self.assertTrue(abs(res1 - res2) <= 1e-13)
+        if abs(res1 - res2) > 1e-5:
+            raise AssertionError("%r != %r" % (res1, res2))
 
     def test_pydot(self):
         va = numpy.random.randn(100).astype(numpy.float64)
