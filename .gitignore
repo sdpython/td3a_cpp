@@ -13,3 +13,4 @@ td3a_cpp/tutorial/dot_cython.cpp
 td3a_cpp/tutorial/dot_blas_lapack.cpp
 td3a_cpp/tutorial/experiment_cython.cpp
 td3a_cpp/tutorial/dot_cython_omp.cpp
+td3a_cpp/tutorial/mul_cython_omp.cpp

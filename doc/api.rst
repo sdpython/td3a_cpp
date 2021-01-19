@@ -60,7 +60,6 @@ dot
 
 .. autofunction:: td3a_cpp.tutorial.dot_cython_omp.ddot_array_openmp_16
 
-
 filter
 ^^^^^^
 
@@ -80,3 +79,7 @@ filter
 
 .. autofunction:: td3a_cpp.tutorial.experiment_cython.cfilter_dmax16
 
+matrix multiplication
+^^^^^^^^^^^^^^^^^^^^^
+
+.. autofunction:: td3a_cpp.tutorial.mul_cython_omp.dmul_cython_omp
