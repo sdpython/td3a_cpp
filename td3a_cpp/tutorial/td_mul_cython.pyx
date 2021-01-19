@@ -12,6 +12,7 @@ cnumpy.import_array()
 
 
 def multiply_matrix(m1, m2):
+    "Matrix multiplication"
     m3 = pynumpy.zeros((m1.shape[0], m2.shape[1]), dtype=m1.dtype)
     for i in range(0, m1.shape[0]):
         for j in range(0, m2.shape[1]):
@@ -23,6 +24,7 @@ def multiply_matrix(m1, m2):
 cdef void _c_multiply_matrix(double[:, :] m1, double[:, :] m2,
                              double[:, :] m3,
                              cython.int ni, cython.int nj, cython.int nk) nogil:
+    "Matrix multiplication wuth cython"
     cdef cython.int i, j, k    
     for i in prange(0, ni):
         for j in range(0, nj):
@@ -31,6 +33,7 @@ cdef void _c_multiply_matrix(double[:, :] m1, double[:, :] m2,
 
 
 def c_multiply_matrix(double[:, :] m1, double[:, :] m2):
+    "Matrix multiplication calling the cython version"
     m3 = pynumpy.zeros((m1.shape[0], m2.shape[1]), dtype=pynumpy.float64)
     cdef cython.int ni = m1.shape[0]
     cdef cython.int nj = m2.shape[1]
