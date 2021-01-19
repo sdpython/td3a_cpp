@@ -14,6 +14,7 @@ matrix multiplication. There are many ways to be slower.
 
 import pprint
 import numpy
+from numpy.testing import assert_almost_equal
 import matplotlib.pyplot as plt
 from pandas import DataFrame, concat
 from td3a_cpp.tutorial.mul_cython_omp import dmul_cython_omp
@@ -38,6 +39,7 @@ dfs.append(DataFrame(res))
 dfs[-1]['fct'] = 'numpy'
 pprint.pprint(dfs[-1].tail(n=2))
 
+
 ##############################
 # Simple multiplication
 # +++++++++++++++++++++
@@ -57,6 +59,9 @@ pprint.pprint(dfs[-1].tail(n=2))
 # Other scenarios
 # +++++++++++++++
 #
+# 3 differents algorithms, each of them parallelized.
+# See :func:`dmul_cython_omp
+# <td3a_cpp.tutorial.mul_cython_omp.dmul_cython_omp>`.
 
 for algo in range(0, 2):
     for parallel in (0, 1):
@@ -73,10 +78,35 @@ for algo in range(0, 2):
         dfs[-1]['fct'] = 'a=%d-p=%d' % (algo, parallel)
         pprint.pprint(dfs[-1].tail(n=2))
 
+########################################
+# One left issue
+# ++++++++++++++
+#
+# Will you find it in :func:`dmul_cython_omp
+# <td3a_cpp.tutorial.mul_cython_omp.dmul_cython_omp>`.
+
+
+va = numpy.random.randn(3, 4).astype(numpy.float64)
+vb = numpy.random.randn(4, 5).astype(numpy.float64)
+numpy_mul = va @ vb
+
+try:
+    for a in range(0, 50):
+        wrong_mul = dmul_cython_omp(va, vb, algo=2, parallel=1)
+        assert_almost_equal(numpy_mul, wrong_mul)
+        print("Iteration %d is Ok" % a)
+    print("All iterations are unexpectedly Ok. Don't push your luck.")
+except AssertionError as e:
+    print(e)
+
+
 ##############################
 # Other scenarios but transposed
 # ++++++++++++++++++++++++++++++
 #
+# Same differents algorithms but the second matrix
+# is transposed first: ``b_trans=1``.
+
 
 for algo in range(0, 2):
     for parallel in (0, 1):
