@@ -23,6 +23,9 @@ cdef double _ddot_cython_array_omp(const double[::1] va, const double[::1] vb,
     
     :param va: first vector, dtype must be float64
     :param vb: second vector, dtype must be float64
+    :param chunksize: see :epkg:`prange`
+    :param schedule: 0 no parallelization, 1 for `'static'`,
+        2 for `'dynamic'`
     :return: dot product
     """
     cdef int n = va.shape[0]
@@ -50,7 +53,8 @@ def ddot_cython_array_omp(const double[::1] va, const double[::1] vb,
     :param va: first vector, dtype must be float64
     :param vb: second vector, dtype must be float64
     :param chunksize: see :epkg:`prange`
-    :param schedule: see :epkg:`prange`
+    :param schedule: 0 simple :epkg:`prange`,
+        1 for `'static'`, 2 for `'dynamic'`
     :return: dot product
     """
     if va.shape[0] != vb.shape[0]:        

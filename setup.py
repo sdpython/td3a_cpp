@@ -58,7 +58,8 @@ def get_extension_tutorial(name):
     pattern1 = "td3a_cpp.tutorial.%s"
     srcs = ['td3a_cpp/tutorial/%s.pyx' % name]
     args = get_defined_args()
-    if name in ['dot_cython', 'experiment_cython', 'dot_cython_omp']:
+    if name in ['dot_cython', 'experiment_cython', 'dot_cython_omp',
+                'mul_cython_omp']:
         srcs.extend(['td3a_cpp/tutorial/%s_.cpp' % name])
         args['language'] = "c++"
 
@@ -115,7 +116,8 @@ with open(os.path.join(here, 'td3a_cpp/__init__.py'), "r") as f:
 
 ext_modules = []
 for ext in ['dot_blas_lapack', 'dot_cython',
-            'experiment_cython', 'dot_cython_omp']:
+            'experiment_cython', 'dot_cython_omp',
+            'mul_cython_omp']:
     ext_modules.extend(get_extension_tutorial(ext))
 
 
