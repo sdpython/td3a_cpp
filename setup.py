@@ -117,7 +117,7 @@ with open(os.path.join(here, 'td3a_cpp/__init__.py'), "r") as f:
 ext_modules = []
 for ext in ['dot_blas_lapack', 'dot_cython',
             'experiment_cython', 'dot_cython_omp',
-            'mul_cython_omp']:
+            'mul_cython_omp', 'td_mul_cython']:
     ext_modules.extend(get_extension_tutorial(ext))
 
 
