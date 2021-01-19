@@ -36,7 +36,8 @@ class TestTutorialTD(unittest.TestCase):
             'multiply_matrix(va, vb)', number=10, globals=ctx)
         self.assertLess(res1, res2)  # numpy is much faster.
         ratio1 = res2 / res1
-        self.assertGreater(ratio1, 1)  # ratio1 = number of times numpy is faster
+        # ratio1 = number of times numpy is faster
+        self.assertGreater(ratio1, 1)
         ratio2 = res3 / res1
         self.assertGreater(ratio2, 1)
 
