@@ -1,11 +1,13 @@
 """
+Test for `td_mul_cython`.
 """
 import unittest
 import timeit
 import numpy
 from numpy.testing import assert_almost_equal
 from td3a_cpp.tutorial.td_mul_cython import (
-    multiply_matrix, c_multiply_matrix)
+    multiply_matrix, c_multiply_matrix, c_multiply_matrix_parallel,
+    c_multiply_matrix_parallel_transposed)
 
 
 class TestTutorialTD(unittest.TestCase):
@@ -24,9 +26,23 @@ class TestTutorialTD(unittest.TestCase):
         res2 = c_multiply_matrix(va, vb)
         assert_almost_equal(res1, res2)
 
+    def test_matrix_cmultiply_matrix_parallel(self):
+        va = numpy.random.randn(3, 4).astype(numpy.float64)
+        vb = numpy.random.randn(4, 5).astype(numpy.float64)
+        res1 = va @ vb
+        res2 = c_multiply_matrix_parallel(va, vb)
+        assert_almost_equal(res1, res2)
+
+    def test_matrix_cmultiply_matrix_transposed_parallel(self):
+        va = numpy.random.randn(3, 4).astype(numpy.float64)
+        vb = numpy.random.randn(4, 5).astype(numpy.float64)
+        res1 = va @ vb
+        res2 = c_multiply_matrix_parallel_transposed(va, vb.T.copy())
+        assert_almost_equal(res1, res2)
+
     def test_timeit(self):
-        va = numpy.random.randn(300, 400).astype(numpy.float64)
-        vb = numpy.random.randn(400, 500).astype(numpy.float64)
+        va = numpy.random.randn(30, 40).astype(numpy.float64)
+        vb = numpy.random.randn(40, 50).astype(numpy.float64)
         ctx = {'va': va, 'vb': vb, 'c_multiply_matrix': c_multiply_matrix,
                'multiply_matrix': multiply_matrix}
         res1 = timeit.timeit('va @ vb', number=10, globals=ctx)
