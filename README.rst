@@ -68,7 +68,7 @@ Or:
 ::
 
     python -m pytest
-    
+
 To check style:
 
 ::

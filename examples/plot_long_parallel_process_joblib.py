@@ -29,8 +29,9 @@ def parallel_dot_joblib(va, vb, max_workers=2):
         raise RuntimeError("size must be a multiple of max_workers.")
 
     r = Parallel(n_jobs=max_workers, backend="loky")(
-            delayed(numpy.dot)(va[i*dhk:i*dhk+dhk], vb[i*dhk:i*dhk+dhk])
-            for i in range(max_workers * k))
+        delayed(numpy.dot)(va[i * dhk:i * dhk + dhk],
+                           vb[i * dhk:i * dhk + dhk])
+        for i in range(max_workers * k))
     return sum(r)
 
 ###########################
