@@ -6,7 +6,7 @@ td3a_cpp: template for a python module with cython and openmp
     :target: https://circleci.com/gh/sdpython/td3a_cpp/tree/master
 
 .. image:: https://travis-ci.com/sdpython/td3a_cpp.svg?branch=master
-    :target: https://travis-ci.com/sdpython/td3a_cpp
+    :target: https://app.travis-ci.com/github/sdpython/td3a_cpp
     :alt: Build status
 
 .. image:: https://ci.appveyor.com/api/projects/status/wvo6ovlaxi8ypua4?svg=true
