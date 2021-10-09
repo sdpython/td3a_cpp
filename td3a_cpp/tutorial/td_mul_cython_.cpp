@@ -14,7 +14,6 @@ double vector_ddot_product_pointer16_sse(const double *p1, const double *p2, int
         sum += *p1 * *p2;
         ++p1;
         ++p2;
-        --size;
     }
     __m128d c1 = _mm_loadu_pd(p1);
     __m128d c2 = _mm_loadu_pd(p2);
