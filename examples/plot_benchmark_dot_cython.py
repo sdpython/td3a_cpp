@@ -119,9 +119,9 @@ cc['N'] = cc['x_name']
 
 fig, ax = plt.subplots(1, 2, figsize=(10, 4))
 cc.pivot('N', 'fct', 'average').plot(
-         logy=True, ax=ax[0])
+    logy=True, ax=ax[0])
 cc.pivot('N', 'fct', 'average').plot(
-         logy=True, logx=True, ax=ax[1])
+    logy=True, logx=True, ax=ax[1])
 ax[0].set_title("Comparison of cython sdot implementations")
 ax[1].set_title("Comparison of cython sdot implementations")
 

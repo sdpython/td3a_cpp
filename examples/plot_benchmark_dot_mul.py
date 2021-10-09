@@ -69,9 +69,9 @@ for algo in range(0, 2):
         ctxs = [dict(va=numpy.random.randn(n, n).astype(numpy.float64),
                      vb=numpy.random.randn(n, n).astype(numpy.float64),
                      mul=lambda x, y: dmul_cython_omp(
-                        x, y, algo=algo, parallel=parallel),
-                     x_name=n)
-                for n in sets]
+            x, y, algo=algo, parallel=parallel),
+            x_name=n)
+            for n in sets]
 
         res = list(measure_time_dim('mul(va, vb)', ctxs, verbose=1))
         dfs.append(DataFrame(res))
@@ -114,9 +114,9 @@ for algo in range(0, 2):
         ctxs = [dict(va=numpy.random.randn(n, n).astype(numpy.float64),
                      vb=numpy.random.randn(n, n).astype(numpy.float64),
                      mul=lambda x, y: dmul_cython_omp(
-                        x, y, algo=algo, parallel=parallel, b_trans=1),
-                     x_name=n)
-                for n in sets]
+            x, y, algo=algo, parallel=parallel, b_trans=1),
+            x_name=n)
+            for n in sets]
 
         res = list(measure_time_dim('mul(va, vb)', ctxs, verbose=2))
         dfs.append(DataFrame(res))

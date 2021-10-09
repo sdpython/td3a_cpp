@@ -12,6 +12,32 @@ cimport openmp
 cnumpy.import_array()
 
 
+cdef int _dmul_cython_omp01(const double* va, const double* vb, double* res,
+                            Py_ssize_t p, Py_ssize_t ni, Py_ssize_t nj, Py_ssize_t nk) nogil:
+    cdef Py_ssize_t j, k
+    for j in range(0, nj):
+        res[p * nj + j] = 0
+        for k in range(0, nk):
+            res[p * nj + j] += va[p * nk + k] * vb[k * nj + j]
+
+
+cdef int _dmul_cython_omp11(const double* va, const double* vb, double* res,
+                            Py_ssize_t p, Py_ssize_t ni, Py_ssize_t nj, Py_ssize_t nk) nogil:
+    cdef Py_ssize_t i, k
+    for i in range(0, ni):
+        res[i * nj + p] = 0
+        for k in range(0, nk):
+            res[i * nj + p] += va[i * nk + k] * vb[k * nj + p]
+
+
+cdef int _dmul_cython_omp21(const double* va, const double* vb, double* res,
+                            Py_ssize_t p, Py_ssize_t ni, Py_ssize_t nj, Py_ssize_t nk) nogil:
+    cdef Py_ssize_t i, j
+    for i in range(0, ni):
+        for j in range(0, nj):
+            res[i * nj + j] += va[i * nk + p] * vb[p * nj + j]
+
+
 cdef int _dmul_cython_omp(const double* va, const double* vb, double* res,
                           Py_ssize_t ni, Py_ssize_t nj, Py_ssize_t nk,
                           cython.int algo, cython.int parallel) nogil:
@@ -57,32 +83,25 @@ cdef int _dmul_cython_omp(const double* va, const double* vb, double* res,
     if parallel == 1:
         if algo == 0:
             for p in prange(0, ni):
-                for j in range(0, nj):
-                    res[p * nj + j] = 0
-                    for k in range(0, nk):
-                        res[p * nj + j] += va[p * nk + k] * vb[k * nj + j]
+                _dmul_cython_omp01(va, vb, res, p, ni, nj, nk)
             return 1
 
         if algo == 1:
             for p in prange(0, nj):
-                for i in range(0, ni):
-                    res[i * nj + p] = 0
-                    for k in range(0, nk):
-                        res[i * nj + p] += va[i * nk + k] * vb[k * nj + p]
+                _dmul_cython_omp11(va, vb, res, p, ni, nj, nk)
             return 1
 
         if algo == 2:
             for p in prange(0, nk):
-                for i in range(0, ni):
-                    for j in range(0, nj):
-                        res[i * nj + j] += va[i * nk + p] * vb[p * nj + j]
+                _dmul_cython_omp11(va, vb, res, p, ni, nj, nk)
             return 1
     
     return 0
 
 
 cdef extern from "mul_cython_omp_.h":
-    cdef double vector_ddot_product_pointer16_sse(const double *p1, const double *p2, cython.int size) nogil
+    cdef double vector_ddot_product_pointer16_sse(
+        const double *p1, const double *p2, cython.int size) nogil
 
 
 cdef int _dmul_cython_omp_t(const double* va, const double* vb, double* res,

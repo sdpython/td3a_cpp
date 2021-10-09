@@ -59,7 +59,7 @@ def get_extension_tutorial(name):
     srcs = ['td3a_cpp/tutorial/%s.pyx' % name]
     args = get_defined_args()
     if name in ['dot_cython', 'experiment_cython', 'dot_cython_omp',
-                'mul_cython_omp']:
+                'mul_cython_omp', 'td_mul_cython']:
         srcs.extend(['td3a_cpp/tutorial/%s_.cpp' % name])
         args['language'] = "c++"
 
