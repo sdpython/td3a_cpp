@@ -12,12 +12,24 @@ implementations with cython. The tested functions are
 the following:
 
 * :func:`dot_product <td3a_cpp.tutorial.dot_cython.dot_product>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/
+  master/td3a_cpp/tutorial/dot_cython.pyx#L15>`_
 * :func:`ddot_cython_array <td3a_cpp.tutorial.dot_cython.ddot_cython_array>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/
+  master/td3a_cpp/tutorial/dot_cython.pyx#L29>`_
 * :func:`ddot_cython_array_optim
   <td3a_cpp.tutorial.dot_cython.ddot_cython_array_optim>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/
+  master/td3a_cpp/tutorial/dot_cython.pyx#L63>`_
 * :func:`ddot_array <td3a_cpp.tutorial.dot_cython.ddot_array>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/
+  master/td3a_cpp/tutorial/dot_cython.pyx#L141>`_
 * :func:`ddot_array_16 <td3a_cpp.tutorial.dot_cython.ddot_array_16>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/
+  master/td3a_cpp/tutorial/dot_cython.pyx#L188>`_
 * :func:`ddot_array_16_sse <td3a_cpp.tutorial.dot_cython.ddot_array_16_sse>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/
+  master/td3a_cpp/tutorial/dot_cython.pyx#L230>`_
 
 .. contents::
     :local:

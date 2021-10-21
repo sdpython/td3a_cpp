@@ -2,11 +2,17 @@
 
 .. _l-example-mul:
 
-Compares mul implementations
-============================
+Compares matrix multiplication implementations
+==============================================
 
 :epkg:`numpy` has a very fast implementation of
 matrix multiplication. There are many ways to be slower.
+
+Compared implementations:
+
+* :func:`dmul_cython_omp <td3a_cpp.tutorial.mul_cython_omp.dmul_cython_omp>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/mul_cython_omp.pyx#L171>`_
 
 .. contents::
     :local:
@@ -52,7 +58,7 @@ ctxs = [dict(va=numpy.random.randn(n, n).astype(numpy.float64),
         for n in sets]
 
 res = list(measure_time_dim('mul(va, vb)', ctxs, verbose=1))
-pprint.pprint(dfs[-1].tail(n=2))
+pprint.pprint(res[-1])
 
 
 ##############################
@@ -131,18 +137,23 @@ for algo in range(0, 2):
 cc = concat(dfs)
 cc['N'] = cc['x_name']
 
-fig, ax = plt.subplots(3, 2, figsize=(10, 8))
-cc[~cc.fct.str.contains('-T')].pivot('N', 'fct', 'average').plot(
-    logy=True, logx=True, ax=ax[0, 0])
-cc[~cc.fct.str.contains('-T') & (cc.fct != 'numpy')].pivot(
+fig, ax = plt.subplots(3, 2, figsize=(10, 8), sharex=True, sharey=True)
+ccnp = cc.fct == 'numpy'
+cct = cc.fct.str.contains('-T')
+cca0 = cc.fct.str.contains('a=0')
+cc[ccnp | (~cct & cca0)].pivot(
+    'N', 'fct', 'average').plot(logy=True, logx=True, ax=ax[0, 0])
+cc[ccnp | (~cct & ~cca0)].pivot(
     'N', 'fct', 'average').plot(logy=True, logx=True, ax=ax[0, 1])
-cc[cc.fct.str.contains('-T') | (cc.fct == 'numpy')].pivot(
+cc[ccnp | (cct & cca0)].pivot(
     'N', 'fct', 'average').plot(logy=True, logx=True, ax=ax[1, 0])
-cc[cc.fct.str.contains('-T') & (cc.fct != 'numpy')].pivot(
+cc[ccnp | (~cct & ~cca0)].pivot(
     'N', 'fct', 'average').plot(logy=True, logx=True, ax=ax[1, 1])
-cc[cc.fct.str.contains('a=0')].pivot('N', 'fct', 'average').plot(
+cc[ccnp | cca0].pivot('N', 'fct', 'average').plot(
+    logy=True, logx=True, ax=ax[2, 0])
+cc[ccnp | ~cca0].pivot('N', 'fct', 'average').plot(
     logy=True, logx=True, ax=ax[2, 1])
-fig.suptitle("Comparison of multiplication implementations")
+fig.suptitle("Comparison of matrix multiplication implementations")
 
 #################################
 # The results depends on the machine, its

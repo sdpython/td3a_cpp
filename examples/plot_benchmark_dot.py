@@ -10,6 +10,12 @@ the dot product. It is difficult to be better and very easy
 to be slower. This example looks into a couple of slower
 implementations.
 
+Compared implementations:
+
+* :func:`pydot <td3a_cpp.tutorial.dotpy.pydot>`
+* `cblas_ddot <https://github.com/sdpython/td3a_cpp/
+  blob/master/td3a_cpp/tutorial/dot_blas_lapack.pyx#L39>`_
+
 .. contents::
     :local:
 """

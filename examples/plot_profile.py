@@ -11,7 +11,6 @@ Because numerical functions are usually very short,
 it is usually helpful to call them multiple times
 before the cause becomes significant.
 
-
 .. content::
     :local:
 """
@@ -96,6 +95,8 @@ if profiler is not None:
 
 #######################################
 # See :ref:`l-appendix-example-dot-profile`.
-# We see that :func:`cblas_ddot` and `numpy.dot` uses
+# We see that :func:`cblas_ddot
+# <td3a_cpp.tutorial.cblas_ddot>`
+# and :func:`numpy.dot` uses
 # the same C function but the wrapping is not the same
 # and numpy is more efficient.

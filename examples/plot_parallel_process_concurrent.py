@@ -6,7 +6,7 @@ Parallelization of a dot product with processes (concurrent.futures)
 ====================================================================
 
 Uses processes to parallelize a dot product is not
-a very solution becausep processes do not share memory,
+a very solution because processes do not share memory,
 they need to exchange data. This parallelisation
 is efficient if the ratio *exchanged data / computation time*
 is low. This example uses :epkg:`concurrent.futures`.

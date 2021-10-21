@@ -14,8 +14,7 @@ int get_omp_max_threads_cpp()
 
 
 double vector_ddot_openmp(const double *p1, const double *p2,
-                          int size, int nthreads)
-{
+                          int size, int nthreads) {
     if (nthreads <= 0)
         nthreads = ::omp_get_max_threads();
     double sum = 0;
@@ -28,8 +27,7 @@ double vector_ddot_openmp(const double *p1, const double *p2,
 }
 
 
-double vector_ddot_product_pointer16(const double *p1, const double *p2)
-{
+double vector_ddot_product_pointer16(const double *p1, const double *p2) {
     // Branching optimization must be done in a separate function.
     double sum = 0;
     
@@ -56,8 +54,7 @@ double vector_ddot_product_pointer16(const double *p1, const double *p2)
 
 
 double vector_ddot_openmp_16(const double *p1, const double *p2,
-                             int size, int nthreads)
-{
+                             int size, int nthreads) {
     if (nthreads <= 0)
         nthreads = ::omp_get_max_threads();
     
