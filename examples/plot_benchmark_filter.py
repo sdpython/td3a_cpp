@@ -11,15 +11,32 @@ is replaced by *mx*. It compares several implementation
 to :epkg:`numpy`.
 
 * :func:`cfilter_dmax <td3a_cpp.tutorial.experiment_cython.cfilter_dmax>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/experiment_cython.pyx#L93>`_
 * :func:`cfilter_dmax2 <td3a_cpp.tutorial.experiment_cython.cfilter_dmax2>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/experiment_cython.pyx#L107>`_
 * :func:`cfilter_dmax4 <td3a_cpp.tutorial.experiment_cython.cfilter_dmax4>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/experiment_cython.pyx#L138>`_
 * :func:`cfilter_dmax16 <td3a_cpp.tutorial.experiment_cython.cfilter_dmax16>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/experiment_cython.pyx#L122>`_
 * :func:`cyfilter_dmax <td3a_cpp.tutorial.experiment_cython.cyfilter_dmax>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/experiment_cython.pyx#L72>`_
 * :func:`filter_dmax_cython
   <td3a_cpp.tutorial.experiment_cython.filter_dmax_cython>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/experiment_cython.pyx#L28>`_
 * :func:`filter_dmax_cython_optim
   <td3a_cpp.tutorial.experiment_cython.filter_dmax_cython_optim>`
-* :func:`pyfilter_dmax <td3a_cpp.tutorial.experiment_cython.pyfilter_dmax>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/experiment_cython.pyx#L43>`_
+* :func:`pyfilter_dmax
+  <td3a_cpp.tutorial.experiment_cython.pyfilter_dmax>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/experiment_cython.pyx#L15>`_
 """
 
 import pprint

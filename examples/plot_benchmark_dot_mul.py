@@ -8,6 +8,12 @@ Compares matrix multiplication implementations
 :epkg:`numpy` has a very fast implementation of
 matrix multiplication. There are many ways to be slower.
 
+Compared implementations:
+
+* :func:`dmul_cython_omp <td3a_cpp.tutorial.mul_cython_omp.dmul_cython_omp>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/mul_cython_omp.pyx#L171>`_
+
 .. contents::
     :local:
 """

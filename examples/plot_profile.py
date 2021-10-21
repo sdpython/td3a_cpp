@@ -11,7 +11,6 @@ Because numerical functions are usually very short,
 it is usually helpful to call them multiple times
 before the cause becomes significant.
 
-
 .. content::
     :local:
 """

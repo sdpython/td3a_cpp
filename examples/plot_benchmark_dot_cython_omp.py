@@ -12,12 +12,20 @@ implementations with cython. The tested functions are
 the following:
 
 * :func:`ddot_array_16_sse <td3a_cpp.tutorial.dot_cython.ddot_array_16_sse>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/dot_cython.pyx#L230>`_
 * :func:`ddot_cython_array_omp
   <td3a_cpp.tutorial.dot_cython_omp.ddot_cython_array_omp>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/dot_cython_omp.pyx#L47>`_
 * :func:`ddot_array_openmp
   <td3a_cpp.tutorial.dot_cython_omp.ddot_array_openmp>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/dot_cython_omp.pyx#L88>`_
 * :func:`ddot_array_openmp_16
   <td3a_cpp.tutorial.dot_cython_omp.ddot_array_openmp_16>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/dot_cython_omp.pyx#L104>`_
 
 .. contents::
     :local:

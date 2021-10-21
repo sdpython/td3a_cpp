@@ -2,8 +2,7 @@
 set current=%~dp0
 set root=%current%..
 cd %root%
-set pythonexe="c:\Python387_x64\python.exe"
-if not exist %pythonexe% set pythonexe="c:\Python370_x64\python.exe"
+set pythonexe=python
 
 @echo running 'python -m flake8 td3a_cpp tests examples'
 %pythonexe% -m flake8 td3a_cpp tests examples setup.py doc/conf.py

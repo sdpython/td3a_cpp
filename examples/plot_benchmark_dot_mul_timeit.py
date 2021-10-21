@@ -9,6 +9,23 @@ Compares matrix multiplication implementations with timeit
 matrix multiplication. There are many ways to be slower.
 The following uses :mod:`timeit` to compare implementations.
 
+Compared implementations:
+
+* :func:`multiply_matrix <td3a_cpp.tutorial.td_mul_cython.multiply_matrix>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/td_mul_cython.pyx#L14>`_
+* :func:`c_multiply_matrix <td3a_cpp.tutorial.td_mul_cython.c_multiply_matrix>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/td_mul_cython.pyx#L69>`_
+* :func:`c_multiply_matrix_parallel
+  <td3a_cpp.tutorial.td_mul_cython.c_multiply_matrix_parallel>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/td_mul_cython.pyx#L49>`_
+* :func:`c_multiply_matrix_parallel_transposed
+  <td3a_cpp.tutorial.td_mul_cython.c_multiply_matrix_parallel_transposed>`
+  `code <https://github.com/sdpython/td3a_cpp/blob/master/
+  td3a_cpp/tutorial/td_mul_cython.pyx#L106>`_
+
 .. contents::
     :local:
 
