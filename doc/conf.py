@@ -134,6 +134,7 @@ epkg_dictionary = {
     'python': 'https://www.python.org/',
     'py-spy': 'https://github.com/benfred/py-spy',
     'RUST': 'https://www.rust-lang.org/',
+    'scikit-learn': 'https://scikit-learn.org/stable/',
     'sphinx-gallery': 'https://github.com/sphinx-gallery/sphinx-gallery',
     'SSE': 'https://fr.wikipedia.org/wiki/Streaming_SIMD_Extensions',
     'tqdm': 'https://github.com/tqdm/tqdm',

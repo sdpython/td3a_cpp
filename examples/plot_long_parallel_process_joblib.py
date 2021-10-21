@@ -6,7 +6,7 @@ Parallelization of a dot product with processes (joblib)
 ========================================================
 
 Uses processes to parallelize a dot product is not
-a very solution becausep processes do not share memory,
+a very solution because processes do not share memory,
 they need to exchange data. This parallelisation
 is efficient if the ratio *exchanged data / computation time*
 is low. :epkg:`joblib` is used by :epkg:`scikit-learn`.

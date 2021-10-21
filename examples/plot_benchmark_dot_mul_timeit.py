@@ -2,12 +2,12 @@
 
 .. _l-example-mul-timeit:
 
-Compares mul implementations with timeit
-========================================
+Compares matrix multiplication implementations with timeit
+==========================================================
 
 :epkg:`numpy` has a very fast implementation of
 matrix multiplication. There are many ways to be slower.
-The following uses :epkg:`timeit` to compare implementations.
+The following uses :mod:`timeit` to compare implementations.
 
 .. contents::
     :local:

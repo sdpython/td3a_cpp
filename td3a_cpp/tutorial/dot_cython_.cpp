@@ -6,8 +6,7 @@
 
 #define BYN 16
 
-double vector_ddot_product_pointer16(const double *p1, const double *p2)
-{
+double vector_ddot_product_pointer16(const double *p1, const double *p2) {
     // Branching optimization must be done in a separate function.
     double sum = 0;
     
@@ -33,8 +32,7 @@ double vector_ddot_product_pointer16(const double *p1, const double *p2)
 }
 
 
-double vector_ddot_product_pointer16(const double *p1, const double *p2, int size)
-{
+double vector_ddot_product_pointer16(const double *p1, const double *p2, int size) {
     double sum = 0;
     int i = 0;
     if (size >= BYN) {
@@ -49,8 +47,7 @@ double vector_ddot_product_pointer16(const double *p1, const double *p2, int siz
 }
 
 
-float vector_sdot_product_pointer16(const float *p1, const float *p2)
-{
+float vector_sdot_product_pointer16(const float *p1, const float *p2) {
     // Branching optimization must be done in a separate function.
     float sum = 0;
     
@@ -76,8 +73,7 @@ float vector_sdot_product_pointer16(const float *p1, const float *p2)
 }
 
 
-float vector_sdot_product_pointer16(const float *p1, const float *p2, int size)
-{
+float vector_sdot_product_pointer16(const float *p1, const float *p2, int size) {
     float sum = 0;
     int i = 0;
     if (size >= BYN) {
@@ -103,8 +99,7 @@ float vector_sdot_product_pointer16(const float *p1, const float *p2, int size)
 #include <immintrin.h>  // double double m256d
 
 
-double vector_ddot_product_pointer16_sse(const double *p1, const double *p2)
-{
+double vector_ddot_product_pointer16_sse(const double *p1, const double *p2) {
     __m256d c1 = _mm256_load_pd(p1);
     __m256d c2 = _mm256_load_pd(p2);
     __m256d r1 = _mm256_mul_pd(c1, c2);
@@ -141,8 +136,7 @@ double vector_ddot_product_pointer16_sse(const double *p1, const double *p2)
 
 #include <emmintrin.h>  // for double m128d
 
-double vector_ddot_product_pointer16_sse(const double *p1, const double *p2)
-{
+double vector_ddot_product_pointer16_sse(const double *p1, const double *p2) {
     __m128d c1 = _mm_load_pd(p1);
     __m128d c2 = _mm_load_pd(p2);
     __m128d r1 = _mm_mul_pd(c1, c2);
@@ -207,8 +201,7 @@ double vector_ddot_product_pointer16_sse(const double *p1, const double *p2)
 #endif
 
 
-double vector_ddot_product_pointer16_sse(const double *p1, const double *p2, int size)
-{
+double vector_ddot_product_pointer16_sse(const double *p1, const double *p2, int size) {
     double sum = 0;
     int i = 0;
     if (size >= BYN) {
@@ -224,8 +217,7 @@ double vector_ddot_product_pointer16_sse(const double *p1, const double *p2, int
 
 #include <xmmintrin.h>  // for float m128
 
-float vector_sdot_product_pointer16_sse(const float *p1, const float *p2)
-{
+float vector_sdot_product_pointer16_sse(const float *p1, const float *p2) {
     __m128 c1 = _mm_load_ps(p1);
     __m128 c2 = _mm_load_ps(p2);
     __m128 r1 = _mm_mul_ps(c1, c2);
@@ -258,8 +250,7 @@ float vector_sdot_product_pointer16_sse(const float *p1, const float *p2)
 }
 
 
-float vector_sdot_product_pointer16_sse(const float *p1, const float *p2, int size)
-{
+float vector_sdot_product_pointer16_sse(const float *p1, const float *p2, int size) {
     float sum = 0;
     int i = 0;
     if (size >= BYN) {
