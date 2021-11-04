@@ -1,5 +1,5 @@
 """
-Implements command line ``python -m td3a_check <command> <args>``.
+Implements command line ``python -m td3a_cpp <command> <args>``.
 """
 import sys
 
