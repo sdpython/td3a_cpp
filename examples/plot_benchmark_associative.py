@@ -76,7 +76,8 @@ piv
 
 fig, ax = plt.subplots(1, 2, figsize=(12, 4))
 piv.plot(logx=True, logy=True, ax=ax[0],
-         title=f"{m1.shape!r} @ {m2.shape!r} @ {m3.shape!r}".replace("200", "size"))
+         title=f"{m1.shape!r} @ {m2.shape!r} @ "
+               f"{m3.shape!r}".replace("200", "size"))
 piv["ratio"] = piv["m1 @ (m2 @ m3)"] / piv["(m1 @ m2) @ m3"]
 piv[['ratio']].plot(ax=ax[1])
 
