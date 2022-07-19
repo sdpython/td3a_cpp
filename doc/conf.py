@@ -90,8 +90,7 @@ texinfo_documents = [
 ]
 
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/{.major}".format(
-        sys.version_info), None),
+    "python": (f"https://docs.python.org/{sys.version_info.major}", None),
     "numpy": ("https://numpy.org/doc/stable", None),
     "scipy": ("https://docs.scipy.org/doc/scipy/reference", None),
     "matplotlib": ("https://matplotlib.org/", None),

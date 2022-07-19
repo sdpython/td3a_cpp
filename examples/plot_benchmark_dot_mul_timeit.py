@@ -92,7 +92,7 @@ print('cython implementation parallelized avx', res4)
 ############################
 # Speed up...
 
-print("numpy is %f faster than pure python." % (res1 / res0))
-print("numpy is %f faster than cython." % (res2 / res0))
-print("numpy is %f faster than parallelized cython." % (res3 / res0))
-print("numpy is %f faster than avx parallelized cython." % (res4 / res0))
+print(f"numpy is {res1 / res0:f} faster than pure python.")
+print(f"numpy is {res2 / res0:f} faster than cython.")
+print(f"numpy is {res3 / res0:f} faster than parallelized cython.")
+print(f"numpy is {res4 / res0:f} faster than avx parallelized cython.")

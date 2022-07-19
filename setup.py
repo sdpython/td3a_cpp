@@ -56,11 +56,11 @@ def get_defined_args():
 
 def get_extension_tutorial(name):
     pattern1 = "td3a_cpp.tutorial.%s"
-    srcs = ['td3a_cpp/tutorial/%s.pyx' % name]
+    srcs = [f'td3a_cpp/tutorial/{name}.pyx']
     args = get_defined_args()
     if name in ['dot_cython', 'experiment_cython', 'dot_cython_omp',
                 'mul_cython_omp', 'td_mul_cython']:
-        srcs.extend(['td3a_cpp/tutorial/%s_.cpp' % name])
+        srcs.extend([f'td3a_cpp/tutorial/{name}_.cpp'])
         args['language'] = "c++"
 
     ext = Extension(pattern1 % name, srcs,
