@@ -33,7 +33,6 @@ jobs:
       - run:
           name: run tests
           command: |
-            . venv/bin/activate
             coverage run  --omit=tests/test_*.py -m unittest discover tests -v -v
 
       - run:
