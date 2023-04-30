@@ -118,14 +118,15 @@ cc = concat(dfs)
 cc['N'] = cc['x_name']
 
 fig, ax = plt.subplots(2, 2, figsize=(10, 10))
-cc[cc.N <= 1000].pivot('N', 'fct', 'average').plot(
+cc[cc.N <= 1000].pivot(index='N', columns='fct', values='average').plot(
     logy=True, ax=ax[0, 0])
-cc.pivot('N', 'fct', 'average').plot(
+cc.pivot(index='N', columns='fct', values='average').plot(
     logy=True, ax=ax[0, 1])
-cc.pivot('N', 'fct', 'average').plot(
+cc.pivot(index='N', columns='fct', values='average').plot(
     logy=True, logx=True, ax=ax[1, 1])
 cc[((cc.fct.str.contains('omp') | (cc.fct == 'ddot_array')) &
-    ~cc.fct.str.contains('dyn'))].pivot('N', 'fct', 'average').plot(
+    ~cc.fct.str.contains('dyn'))].pivot(
+        index='N', columns='fct', values='average').plot(
     logy=True, ax=ax[1, 0])
 ax[0, 0].set_title("Comparison of cython ddot implementations")
 ax[0, 1].set_title("Comparison of cython ddot implementations"

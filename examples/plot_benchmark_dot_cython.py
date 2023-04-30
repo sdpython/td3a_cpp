@@ -94,11 +94,14 @@ cc = concat(dfs)
 cc['N'] = cc['x_name']
 
 fig, ax = plt.subplots(2, 2, figsize=(10, 10))
-cc[cc.N <= 1100].pivot('N', 'fct', 'average').plot(
+cc[cc.N <= 1100].pivot(
+        index='N', columns='fct', values='average').plot(
     logy=True, logx=True, ax=ax[0, 0])
-cc[cc.fct != 'dot_product'].pivot('N', 'fct', 'average').plot(
+cc[cc.fct != 'dot_product'].pivot(
+        index='N', columns='fct', values='average').plot(
     logy=True, ax=ax[0, 1])
-cc[cc.fct != 'dot_product'].pivot('N', 'fct', 'average').plot(
+cc[cc.fct != 'dot_product'].pivot(
+        index='N', columns='fct', values='average').plot(
     logy=True, logx=True, ax=ax[1, 1])
 ax[0, 0].set_title("Comparison of cython ddot implementations")
 ax[0, 1].set_title("Comparison of cython ddot implementations"
@@ -130,9 +133,9 @@ cc = concat(dfs)
 cc['N'] = cc['x_name']
 
 fig, ax = plt.subplots(1, 2, figsize=(10, 4))
-cc.pivot('N', 'fct', 'average').plot(
+cc.pivot(index='N', columns='fct', values='average').plot(
     logy=True, ax=ax[0])
-cc.pivot('N', 'fct', 'average').plot(
+cc.pivot(index='N', columns='fct', values='average').plot(
     logy=True, logx=True, ax=ax[1])
 ax[0].set_title("Comparison of cython sdot implementations")
 ax[1].set_title("Comparison of cython sdot implementations")

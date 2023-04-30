@@ -67,7 +67,7 @@ for i in tqdm([50, 100, 125, 150, 175, 200]):
     obs.append(t2)
 
 df = DataFrame(obs)
-piv = df.pivot("size", "formula", "average")
+piv = df.pivot(index="size", columns="formula", values="average")
 piv
 
 ###########################################

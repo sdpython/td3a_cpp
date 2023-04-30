@@ -149,9 +149,9 @@ cc[ccnp | (cct & cca0)].pivot(
     'N', 'fct', 'average').plot(logy=True, logx=True, ax=ax[1, 0])
 cc[ccnp | (~cct & ~cca0)].pivot(
     'N', 'fct', 'average').plot(logy=True, logx=True, ax=ax[1, 1])
-cc[ccnp | cca0].pivot('N', 'fct', 'average').plot(
+cc[ccnp | cca0].pivot(index='N', columns='fct', values='average').plot(
     logy=True, logx=True, ax=ax[2, 0])
-cc[ccnp | ~cca0].pivot('N', 'fct', 'average').plot(
+cc[ccnp | ~cca0].pivot(index='N', columns='fct', values='average').plot(
     logy=True, logx=True, ax=ax[2, 1])
 fig.suptitle("Comparison of matrix multiplication implementations")
 
